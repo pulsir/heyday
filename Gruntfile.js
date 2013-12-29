@@ -39,7 +39,6 @@ module.exports = function (grunt) {
         css: 'dist/css/heyday.css',
         cssMin: 'dist/css/heyday.css.min',
         cssMap: 'dist/css/heyday.css.map',
-        cssMapURL: 'heyday.css.map',
         js: 'dist/js/heyday.js',
         jsMin: 'dist/js/heyday.min.js'
       }
@@ -63,7 +62,7 @@ module.exports = function (grunt) {
           strictMath: true,
           sourceMap: true,
           outputSourceFiles: true,
-          sourceMapURL: '<%= heyday.dist.cssMapURL %>',
+          sourceMapURL: 'heyday.css.map',
           sourceMapFilename: '<%= heyday.dist.cssMap %>'
         },
         files: {
@@ -131,7 +130,7 @@ module.exports = function (grunt) {
         report: 'min'
       },
       dist: {
-        src: ['<%= concat.dist.dest %>'],
+        src: '<%= heyday.dist.js %>',
         dest: '<%= heyday.dist.jsMin %>'
       }
     },
@@ -144,7 +143,7 @@ module.exports = function (grunt) {
         src: 'Gruntfile.js'
       },
       src: {
-        src: ['js/*.js']
+        src: 'js/*.js'
       },
       test: {
         src: ['js/tests/unit/*.js']
@@ -179,13 +178,13 @@ module.exports = function (grunt) {
         tasks: ['less']
       },
       js: {
-        files: '<%= jshint.src.src %>',
+        files: '<%= heyday.src.js %>',
         tasks: ['jshint:src', 'qunit']
       },
       test: {
-        files: '<%= jshint.test.src %>',
+        files: '<%= heyday.src.js %>',
         tasks: ['jshint:test', 'qunit']
-      },
+      }
     },
 
     sed: {
