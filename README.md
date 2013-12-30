@@ -2,7 +2,7 @@
 
 > Bloat-free front-end framework for your next project
 
-Based on the [Bootstrap](https://github.com/twbs/bootstrap).
+Based on [Bootstrap](https://github.com/twbs/bootstrap).
 
 To get started, check out <http://dev.pulsir.eu/heyday>!
 
