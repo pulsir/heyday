@@ -54,7 +54,7 @@ module.exports = function (grunt) {
 
     // Tasks configuration
     clean: {
-      dist: ['dist']
+      dist: 'dist'
     },
 
     less: {
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
         files: {
           src: [
             '<%= heyday.dist.css %>',
-            '<%= heyday.dist.cssMin %>',
+            '<%= heyday.dist.cssMin %>'
           ]
         }
       }
@@ -147,7 +147,7 @@ module.exports = function (grunt) {
         src: 'js/*.js'
       },
       test: {
-        src: ['js/tests/unit/*.js']
+        src: 'js/tests/unit/*.js'
       }
     },
 
@@ -156,13 +156,13 @@ module.exports = function (grunt) {
         config: 'js/.jscs.json',
       },
       gruntfile: {
-        src: ['Gruntfile.js']
+        src: 'Gruntfile.js'
       },
       src: {
-        src: ['js/*.js']
+        src: 'js/*.js'
       },
       test: {
-        src: ['js/tests/unit/*.js']
+        src: 'js/tests/unit/*.js'
       }
     },
 
@@ -170,21 +170,17 @@ module.exports = function (grunt) {
       options: {
         inject: 'js/tests/unit/phantom.js'
       },
-      files: ['js/tests/*.html']
+      files: 'js/tests/*.html'
     },
 
     watch: {
       less: {
         files: 'less/*.less',
-        tasks: ['less']
+        tasks: ['less', 'csscomb', 'usebanner']
       },
       js: {
         files: '<%= heyday.src.js %>',
-        tasks: ['jshint:src', 'qunit']
-      },
-      test: {
-        files: '<%= heyday.src.js %>',
-        tasks: ['jshint:test', 'qunit']
+        tasks: ['concat', 'uglify', 'jshint:src', 'qunit']
       }
     },
 
