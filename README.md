@@ -45,4 +45,4 @@ contribute.
 
 ## License
 
-Licensed under [The ☺ Licence](http://docs.pulsir.eu/articles/license)
+Licensed under the MIT License.
