@@ -22,21 +22,21 @@ You'll be able to run the various Grunt commands.
 
 ### Available commands
 
-#### Build — `grunt`
+#### Build: `grunt`
 
 Runs tests locally and compiles source code.
 
-#### Compile - grunt dist
+#### Compile: `grunt dist`
 
 Compiles source code.
 
-#### Tests — `grunt test`
+#### Tests: `grunt test`
 
 Runs lint and unit tests.
 
-#### Watch — `grunt watch`
+#### Watch: `grunt watch`
 
-Watches changes in source files and recompiles.
+Watches changes in source files and recompiles them.
 
 ## Contributing
 
