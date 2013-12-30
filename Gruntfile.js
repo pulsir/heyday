@@ -43,7 +43,8 @@ module.exports = function (grunt) {
         jsMin: 'dist/js/heyday.min.js'
       }
     },
-    
+
+    // Banner
     banner: '/*!\n' +
               ' * Heyday v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
               ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
@@ -51,7 +52,7 @@ module.exports = function (grunt) {
               ' */\n',
     jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error("Heyday requires jQuery") }\n\n',
 
-    // Task configuration
+    // Tasks configuration
     clean: {
       dist: ['dist']
     },
@@ -200,7 +201,7 @@ module.exports = function (grunt) {
   });
 
 
-  // These plugins provide necessary tasks.
+  // These plugins provide necessary tasks
   require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
 
   // CSS distribution task
@@ -213,12 +214,12 @@ module.exports = function (grunt) {
   grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
 
   // Test task
-  grunt.registerTask('test', ['dist-css', 'jshint', 'jscs', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'jscs', 'qunit']);
 
   // Default task
   grunt.registerTask('default', ['dist', 'test']);
 
-  // Version numbering task.
+  // Version numbering task
   //
   //   $ grunt change-version --old=A.B.C --new=X.Y.Z
   //
