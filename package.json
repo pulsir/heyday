@@ -6,7 +6,7 @@
   "homepage": "http://dev.pulsir.eu/heyday",
   "repository": "pulsir/heyday",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
