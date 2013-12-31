@@ -1701,9 +1701,6 @@ output {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
-.form-control:-moz-placeholder {
-  color: #999;
-}
 .form-control::-moz-placeholder {
   color: #999;
   opacity: 1;
@@ -4941,13 +4938,11 @@ button.close {
 .pull-left {
   float: left !important;
 }
-.hide {
-  display: none !important;
-}
-.show {
-  display: block !important;
-}
 .invisible {
+  visibility: hidden;
+}
+.hidden {
+  display: none !important;
   visibility: hidden;
 }
 .text-hide {
@@ -4956,10 +4951,6 @@ button.close {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-}
-.hidden {
-  display: none !important;
-  visibility: hidden !important;
 }
 .affix {
   position: fixed;
