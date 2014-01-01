@@ -99,7 +99,7 @@ module.exports = function (grunt) {
     csscomb: {
       sort: {
         options: {
-          sortOrder: '.csscomb.json'
+          config: 'less/.csscomb.json'
         },
         files: {
           '<%= heyday.dist.css %>': '<%= heyday.dist.css %>'
@@ -109,7 +109,7 @@ module.exports = function (grunt) {
 
     csslint: {
       options: {
-        csslintrc: '.csslintrc'
+        csslintrc: 'less/.csslintrc'
       },
       src: '<%= heyday.dist.css %>'
     },

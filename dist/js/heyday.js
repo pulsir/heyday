@@ -1,6 +1,6 @@
 /*!
  * Heyday v1.0.0 (http://dev.pulsir.eu/heyday)
- * Copyright 2013 Pulsir team
+ * Copyright 2014 Pulsir team
  * Licensed under the MIT License.
  */
 
