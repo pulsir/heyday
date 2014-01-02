@@ -19,14 +19,14 @@
   .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
   .user-select(none);
 
-  &:focus {
-    .tab-focus();
-  }
-
   &:hover,
   &:focus {
     color: @btn-default-color;
     text-decoration: none;
+  }
+
+  &:focus {
+    .tab-focus();
   }
 
   &:active,
