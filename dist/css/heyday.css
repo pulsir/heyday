@@ -2818,9 +2818,6 @@ textarea.input-group-sm > .input-group-btn > .btn {
   background-color: #eee;
   border-color: #428bca;
 }
-.nav > li > a > img {
-  max-width: none;
-}
 .nav-tabs {
   border-bottom: 1px solid #ddd;
 }
