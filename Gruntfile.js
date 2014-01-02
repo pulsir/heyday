@@ -18,9 +18,12 @@ module.exports = function (grunt) {
 
     // Paths
     heyday: {
-      src: {
-        less: 'less/heyday.less',
-        js: [
+      less: 'less/heyday.less',
+      css: 'dist/css/heyday.css',
+      cssMin: 'dist/css/heyday.css.min',
+      cssMap: 'dist/css/heyday.css.map',
+      js: {
+        src: [
           'js/transition.js',
           'js/alert.js',
           'js/button.js',
@@ -33,14 +36,9 @@ module.exports = function (grunt) {
           'js/scrollspy.js',
           'js/tab.js',
           'js/affix.js'
-        ]
-      },
-      dist: {
-        css: 'dist/css/heyday.css',
-        cssMin: 'dist/css/heyday.css.min',
-        cssMap: 'dist/css/heyday.css.map',
-        js: 'dist/js/heyday.js',
-        jsMin: 'dist/js/heyday.min.js'
+        ],
+        dist: 'dist/js/heyday.js',
+        distMin: 'dist/js/heyday.min.js'
       }
     },
 
@@ -64,10 +62,10 @@ module.exports = function (grunt) {
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: 'heyday.css.map',
-          sourceMapFilename: '<%= heyday.dist.cssMap %>'
+          sourceMapFilename: '<%= heyday.cssMap %>'
         },
         files: {
-          '<%= heyday.dist.css %>': '<%= heyday.src.less %>'
+          '<%= heyday.css %>': '<%= heyday.less %>'
         }
       },
       minify: {
@@ -76,7 +74,7 @@ module.exports = function (grunt) {
           report: 'min'
         },
         files: {
-          '<%= heyday.dist.cssMin %>': '<%= heyday.dist.css %>'
+          '<%= heyday.cssMin %>': '<%= heyday.css %>'
         }
       }
     },
@@ -89,8 +87,8 @@ module.exports = function (grunt) {
         },
         files: {
           src: [
-            '<%= heyday.dist.css %>',
-            '<%= heyday.dist.cssMin %>'
+            '<%= heyday.css %>',
+            '<%= heyday.cssMin %>'
           ]
         }
       }
@@ -102,7 +100,7 @@ module.exports = function (grunt) {
           config: 'less/.csscomb.json'
         },
         files: {
-          '<%= heyday.dist.css %>': '<%= heyday.dist.css %>'
+          '<%= heyday.css %>': '<%= heyday.css %>'
         }
       }
     },
@@ -111,7 +109,7 @@ module.exports = function (grunt) {
       options: {
         csslintrc: 'less/.csslintrc'
       },
-      src: '<%= heyday.dist.css %>'
+      src: '<%= heyday.css %>'
     },
 
     concat: {
@@ -120,8 +118,8 @@ module.exports = function (grunt) {
         stripBanners: false
       },
       dist: {
-        src: '<%= heyday.src.js %>',
-        dest: '<%= heyday.dist.js %>'
+        src: '<%= heyday.js.src %>',
+        dest: '<%= heyday.js.dist %>'
       }
     },
 
@@ -131,8 +129,8 @@ module.exports = function (grunt) {
         report: 'min'
       },
       dist: {
-        src: '<%= heyday.dist.js %>',
-        dest: '<%= heyday.dist.jsMin %>'
+        src: '<%= heyday.js.dist %>',
+        dest: '<%= heyday.js.distMin %>'
       }
     },
 
@@ -179,7 +177,7 @@ module.exports = function (grunt) {
         tasks: ['less', 'csscomb', 'usebanner']
       },
       js: {
-        files: '<%= heyday.src.js %>',
+        files: '<%= heyday.js.src %>',
         tasks: ['concat', 'uglify', 'jshint:src', 'qunit']
       }
     },
