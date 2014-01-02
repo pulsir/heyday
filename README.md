@@ -1,6 +1,6 @@
 # Heyday [![Build status](https://travis-ci.org/pulsir/heyday.png?branch=master)](https://travis-ci.org/pulsir/heyday) [![devDependency status](https://david-dm.org/pulsir/heyday/dev-status.png?theme=shields.io)](https://david-dm.org/pulsir/heyday#info=devDependencies)
 
-> Bloat-free front-end framework for your next project
+> A bloat-free front-end framework for your next project
 
 Based on [Bootstrap](https://github.com/twbs/bootstrap).
 
