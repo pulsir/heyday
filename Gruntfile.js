@@ -215,7 +215,7 @@ module.exports = function (grunt) {
   // Default task
   grunt.registerTask('default', ['dist', 'test']);
 
-  // Version update task
+  // Version updating task
   //
   //   $ grunt change-version --old=A.B.C --new=X.Y.Z
   //
