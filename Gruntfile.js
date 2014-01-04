@@ -107,9 +107,11 @@ module.exports = function (grunt) {
 
     csslint: {
       options: {
-        csslintrc: 'less/.csslintrc'
+        csslintrc: 'less/.csslintrc',
       },
-      src: '<%= heyday.css %>'
+      dist: {
+        src: '<%= heyday.css %>'
+      }
     },
 
     concat: {
@@ -208,7 +210,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
 
   // Test task
-  grunt.registerTask('test', ['jshint', 'jscs', 'qunit']);
+  grunt.registerTask('test', ['csslint', 'jshint', 'jscs', 'qunit']);
 
   // Default task
   grunt.registerTask('default', ['dist', 'test']);
