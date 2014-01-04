@@ -197,7 +197,7 @@ module.exports = function (grunt) {
   });
 
 
-  // These plugins provide necessary tasks
+  // Load plugins
   require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
 
   // CSS distribution task
