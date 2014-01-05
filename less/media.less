@@ -1,10 +1,11 @@
+//
 // Media objects
-// Source: http://stubbornella.org/content/?p=497
-// --------------------------------------------------
+//
 
+// Source: http://stubbornella.org/content/?p=497
 
 // Common styles
-// -------------------------
+// -------------
 
 // Clear the floats
 .media,
@@ -13,28 +14,28 @@
   zoom: 1;
 }
 
-// Proper spacing between instances of .media
+// Proper spacing between instances of `.media`
 .media,
 .media .media {
   margin-top: 15px;
 }
+
 .media:first-child {
   margin-top: 0;
 }
 
-// For images and videos, set to block
+// Items should be blocks
 .media-object {
   display: block;
 }
 
-// Reset margins on headings for tighter default spacing
+// Reset margins on headings for tighter spacing
 .media-heading {
   margin: 0 0 5px;
 }
 
-
-// Media image alignment
-// -------------------------
+// Media item alignment
+// --------------------
 
 .media {
   > .pull-left {
@@ -45,11 +46,10 @@
   }
 }
 
-
 // Media list variation
-// -------------------------
+// --------------------
 
-// Undo default ul/ol styles
+// Undo default list styles
 .media-list {
   padding-left: 0;
   list-style: none;
