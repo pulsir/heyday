@@ -87,19 +87,19 @@
 // Single side border-radius
 .border-top-radius(@radius) {
   border-top-right-radius: @radius;
-   border-top-left-radius: @radius;
+  border-top-left-radius: @radius;
 }
 .border-right-radius(@radius) {
   border-bottom-right-radius: @radius;
-     border-top-right-radius: @radius;
+  border-top-right-radius: @radius;
 }
 .border-bottom-radius(@radius) {
   border-bottom-right-radius: @radius;
-   border-bottom-left-radius: @radius;
+  border-bottom-left-radius: @radius;
 }
 .border-left-radius(@radius) {
   border-bottom-left-radius: @radius;
-     border-top-left-radius: @radius;
+  border-top-left-radius: @radius;
 }
 
 // Drop shadows
@@ -127,8 +127,7 @@
 }
 .transition-transform(@transition) {
   -webkit-transition: -webkit-transform @transition;
-     -moz-transition: -moz-transform @transition;
-       -o-transition: -o-transform @transition;
+      -ms-transition: -ms-transform @transition;
           transition: transform @transition;
 }
 
@@ -155,6 +154,7 @@
 }
 .translate3d(@x; @y; @z) {
   -webkit-transform: translate3d(@x, @y, @z);
+      -ms-transform: translate3d(@x, @y, @z); // IE9 only
           transform: translate3d(@x, @y, @z);
 }
 
@@ -170,17 +170,14 @@
 }
 .perspective(@perspective) {
   -webkit-perspective: @perspective;
-     -moz-perspective: @perspective;
           perspective: @perspective;
 }
 .perspective-origin(@perspective) {
   -webkit-perspective-origin: @perspective;
-     -moz-perspective-origin: @perspective;
           perspective-origin: @perspective;
 }
 .transform-origin(@origin) {
   -webkit-transform-origin: @origin;
-     -moz-transform-origin: @origin;
       -ms-transform-origin: @origin; // IE9 only
           transform-origin: @origin;
 }
@@ -237,7 +234,6 @@
   -webkit-user-select: @select;
      -moz-user-select: @select;
       -ms-user-select: @select; // IE10+
-       -o-user-select: @select;
           user-select: @select;
 }
 
@@ -263,7 +259,6 @@
   -webkit-hyphens: @mode;
      -moz-hyphens: @mode;
       -ms-hyphens: @mode; // IE10+
-       -o-hyphens: @mode;
           hyphens: @mode;
 }
 
