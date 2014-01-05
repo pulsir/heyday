@@ -78,14 +78,10 @@
   // We can't have this transition here because WebKit cancels the carousel
   // animation if you trip this while in the middle of another animation.
 
-  // Set gradients for backgrounds
-  &.left {
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
-  }
+  // Set positions
   &.right {
     left: auto;
     right: 0;
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
   }
 
   // Hover/focus state
@@ -158,15 +154,13 @@
     border-radius: 10px;
     cursor: pointer;
 
-    // IE8-9 hack for event handling
+    // IE9 hack for event handling
     //
-    // Internet Explorer 8-9 does not support clicks on elements without a set
+    // Internet Explorer 9 does not support clicks on elements without a set
     // `background-color`. We cannot use `filter` since that's not viewed as a
     // background color by the browser. Thus, a hack is needed.
     //
-    // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
-    // set alpha transparency for the best results possible.
-    background-color: #000 \9; // IE8
+    // For IE9, we set alpha transparency for the best results possible.
     background-color: rgba(0,0,0,0); // IE9
   }
   .active {
