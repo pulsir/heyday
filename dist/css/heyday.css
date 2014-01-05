@@ -2870,11 +2870,6 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-brand:focus {
   text-decoration: none;
 }
-.navbar-brand > .glyphicon {
-  float: left;
-  margin-top: -2px;
-  margin-right: 5px;
-}
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
@@ -4720,20 +4715,16 @@ button.close {
   opacity: .9;
 }
 .carousel-control .icon-prev,
-.carousel-control .icon-next,
-.carousel-control .glyphicon-chevron-left,
-.carousel-control .glyphicon-chevron-right {
+.carousel-control .icon-next {
   position: absolute;
   top: 50%;
   z-index: 5;
   display: inline-block;
 }
-.carousel-control .icon-prev,
-.carousel-control .glyphicon-chevron-left {
+.carousel-control .icon-prev {
   left: 50%;
 }
-.carousel-control .icon-next,
-.carousel-control .glyphicon-chevron-right {
+.carousel-control .icon-next {
   right: 50%;
 }
 .carousel-control .icon-prev,
@@ -4745,10 +4736,10 @@ button.close {
   font-family: serif;
 }
 .carousel-control .icon-prev:before {
-  content: "\2039";
+  content: "\276e";
 }
 .carousel-control .icon-next:before {
-  content: "\203a";
+  content: "\276f";
 }
 .carousel-indicators {
   position: absolute;
@@ -4795,15 +4786,13 @@ button.close {
   text-shadow: none;
 }
 @media screen and (min-width: 768px) {
-  .carousel-control .glyphicons-chevron-left,
-  .carousel-control .glyphicons-chevron-right,
   .carousel-control .icon-prev,
   .carousel-control .icon-next {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin-top: -15px;
     margin-left: -15px;
-    font-size: 30px;
+    font-size: 20px;
   }
   .carousel-caption {
     right: 20%;
