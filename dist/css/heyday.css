@@ -4147,13 +4147,11 @@ a.list-group-item-info.active:focus {
 .close:focus {
   color: #000;
   text-decoration: none;
-  cursor: pointer;
   opacity: .5;
 }
 button.close {
   -webkit-appearance: none;
   padding: 0;
-  cursor: pointer;
   background: transparent;
   border: 0;
 }
