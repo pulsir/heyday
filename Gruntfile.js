@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     heyday: {
       less: 'less/heyday.less',
       css: 'dist/css/heyday.css',
-      cssMin: 'dist/css/heyday.css.min',
+      cssMin: 'dist/css/heyday.min.css',
       cssMap: 'dist/css/heyday.css.map',
       js: {
         src: [
