@@ -49,9 +49,6 @@
 @component-active-color:                    #fff;
 @component-active-bg:                       @brand-primary;
 
-// Horizontal offset
-@component-offset-horizontal:               180px;
-
 // States
 @state-success-text:                        #3c763d;
 @state-success-bg:                          #dff0d8;
@@ -68,6 +65,18 @@
 @state-info-text:                           #31708f;
 @state-info-bg:                             #d9edf7;
 @state-info-border:                         darken(spin(@state-info-bg, -10), 7%);
+
+// Horizontal offset
+@component-offset-horizontal:               180px;
+
+// Z-index master list
+@zindex-navbar:                             1000;
+@zindex-dropdown:                           1000;
+@zindex-popover:                            1010;
+@zindex-tooltip:                            1030;
+@zindex-navbar-fixed:                       1030;
+@zindex-modal-bg:                           1040;
+@zindex-modal:                              1050;
 
 // Scaffolding
 // -----------
@@ -544,19 +553,6 @@
 @close-font-weight:                         bold;
 @close-color:                               #000;
 @close-text-shadow:                         0 1px 0 #fff;
-
-// Z-index master list
-// -------------------
-// Bird's eye view z-axis
-// Try to avoid customizing these
-
-@zindex-navbar:                             1000;
-@zindex-dropdown:                           1000;
-@zindex-popover:                            1010;
-@zindex-tooltip:                            1030;
-@zindex-navbar-fixed:                       1030;
-@zindex-modal-bg:                           1040;
-@zindex-modal:                              1050;
 
 // Dropdowns
 // ---------
