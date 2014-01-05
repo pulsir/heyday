@@ -286,14 +286,6 @@ body {
   color: #333;
   background-color: #fff;
 }
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
 a {
   color: #428bca;
   text-decoration: none;
@@ -308,21 +300,11 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-img {
-  vertical-align: middle;
-}
-.img-responsive {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
 .img-rounded {
   border-radius: 0;
 }
 .img-thumbnail {
   display: inline-block;
-  max-width: 100%;
-  height: auto;
   padding: 4px;
   line-height: 1.428571429;
   background-color: #fff;
@@ -479,7 +461,6 @@ p {
     font-size: 21px;
   }
 }
-small,
 .small {
   font-size: 85%;
 }
@@ -679,10 +660,6 @@ blockquote.pull-right small:after,
 blockquote.pull-right .small:after {
   content: "\00A0 \2014";
 }
-blockquote:before,
-blockquote:after {
-  content: "";
-}
 address {
   margin-bottom: 20px;
   font-style: normal;
@@ -717,8 +694,6 @@ pre {
   font-size: 13px;
   line-height: 1.428571429;
   color: #333;
-  word-break: break-all;
-  word-wrap: break-word;
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 0;
@@ -1392,9 +1367,6 @@ table {
   max-width: 100%;
   background-color: transparent;
 }
-th {
-  text-align: left;
-}
 .table {
   width: 100%;
   margin-bottom: 20px;
@@ -1617,38 +1589,17 @@ table th[class*="col-"] {
     border-bottom: 0;
   }
 }
-fieldset {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
 legend {
-  display: block;
   width: 100%;
-  padding: 0;
   margin-bottom: 20px;
   font-size: 21px;
   line-height: inherit;
   color: #333;
-  border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
 label {
-  display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
-}
-input[type="search"] {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-input[type="radio"],
-input[type="checkbox"] {
-  margin: 4px 0 0;
-  margin-top: 1px \9;
-  /* IE8-9 */
-  line-height: normal;
 }
 input[type="file"] {
   display: block;
@@ -1703,14 +1654,13 @@ output {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
-.form-control::-moz-placeholder {
+.form-control::-webkit-input-placeholder {
   color: #999;
-  opacity: 1;
 }
 .form-control:-ms-input-placeholder {
   color: #999;
 }
-.form-control::-webkit-input-placeholder {
+.form-control::-moz-placeholder {
   color: #999;
 }
 .form-control[disabled],
@@ -3540,9 +3490,6 @@ a.list-group-item.active > .badge,
 }
 .thumbnail > img,
 .thumbnail a > img {
-  display: block;
-  max-width: 100%;
-  height: auto;
   margin-right: auto;
   margin-left: auto;
 }
@@ -4661,9 +4608,6 @@ button.close {
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  display: block;
-  max-width: 100%;
-  height: auto;
   line-height: 1;
 }
 .carousel-inner > .active,

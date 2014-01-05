@@ -54,10 +54,9 @@
 
 // Placeholder text
 .placeholder(@color: @placeholder-color) {
-  &::-moz-placeholder           { color: @color;   // Firefox 19+
-                                  opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
-  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
   &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-moz-placeholder           { color: @color; } // Firefox 19+
 }
 
 // Text overflow
@@ -342,17 +341,6 @@
     background-image: url("@{file-2x}");
     background-size: @width @height;
   }
-}
-
-
-// Responsive image
-//
-// Keep images from scaling beyond the width of their parents.
-
-.img-responsive(@display: block) {
-  display: @display;
-  max-width: 100%; // Part 1: Set a maximum relative to the parent
-  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
 }
 
 
