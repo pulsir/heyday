@@ -5,10 +5,6 @@
     "dist/css/heyday.css",
     "dist/js/heyday.js"
   ],
-  "ignore": [
-    "**/.*",
-    "js/tests"
-  ],
   "dependencies": {
     "jquery": ">= 1.9.0"
   }
