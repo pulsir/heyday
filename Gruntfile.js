@@ -79,6 +79,17 @@ module.exports = function (grunt) {
       }
     },
 
+    csscomb: {
+      sort: {
+        options: {
+          config: 'less/.csscomb.json'
+        },
+        files: {
+          '<%= heyday.css %>': '<%= heyday.css %>'
+        }
+      }
+    },
+
     usebanner: {
       dist: {
         options: {
@@ -90,17 +101,6 @@ module.exports = function (grunt) {
             '<%= heyday.css %>',
             '<%= heyday.cssMin %>'
           ]
-        }
-      }
-    },
-
-    csscomb: {
-      sort: {
-        options: {
-          config: 'less/.csscomb.json'
-        },
-        files: {
-          '<%= heyday.css %>': '<%= heyday.css %>'
         }
       }
     },
