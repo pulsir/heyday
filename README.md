@@ -10,7 +10,7 @@ To get started, check out <http://dev.pulsir.eu/heyday>!
 
 Heyday uses Grunt to compile code.
 
-### Install Grunt
+### Dependencies
 
 From the command line:
 
@@ -18,7 +18,7 @@ From the command line:
 * Navigate to the root `heyday/` directory, then run `npm install` to get
 required packages.
 
-You'll be able to run the various Grunt commands.
+Once completed, you'll be able to run the various Grunt commands.
 
 ### Available commands
 
