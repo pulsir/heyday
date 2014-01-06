@@ -40,8 +40,8 @@ Watches changes in source files and recompiles them.
 
 ## Contributing
 
-Follow [contributing guide](http://docs.pulsir.eu/articles/contributing) to
-contribute.
+Want to contribute? Check out
+[contributing guide](http://docs.pulsir.eu/articles/contributing).
 
 ## License
 
