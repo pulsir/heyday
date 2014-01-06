@@ -46,7 +46,7 @@ module.exports = function (grunt) {
     banner: '/*!\n' +
               ' * Heyday v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
               ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-              ' * Licensed under the <%= pkg.license %> License.\n' +
+              ' * Licensed under <%= pkg.license %>.\n' +
               ' */\n',
     jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error("Heyday requires jQuery") }\n\n',
 

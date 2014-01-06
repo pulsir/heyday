@@ -1,7 +1,7 @@
 /*!
  * Heyday v1.0.0 (http://dev.pulsir.eu/heyday)
  * Copyright 2014 Pulsir team
- * Licensed under the MIT License.
+ * Licensed under The :) Licence.
  */
 
 if (typeof jQuery === "undefined") { throw new Error("Heyday requires jQuery") }
