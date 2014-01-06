@@ -4,7 +4,7 @@
 
 Based on [Bootstrap](https://github.com/twbs/bootstrap).
 
-To get started, check out <http://dev.pulsir.eu/heyday>!
+To get started, check out <http://dev.pulsir.eu/heyday>.
 
 ## Compiling
 
