@@ -1,4 +1,4 @@
-# Numerous always-ignore extensions
+# Always-ignore extensions
 *.diff
 *.err
 *.orig
@@ -10,7 +10,7 @@
 *.vi
 *~
 
-# Project- or OS-specific
+# Project- and OS-specific
 .DS_Store
 ._*
 Thumbs.db
