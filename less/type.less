@@ -59,8 +59,8 @@ h6, .h6 { font-size: @font-size-h6; }
   border-bottom: 1px solid @page-header-border-color;
 }
 
-// Body text
-// -------------------------
+// Paragraphs
+// ----------
 
 p {
   margin: 0 0 (@line-height-computed / 2);
@@ -69,7 +69,7 @@ p {
 .lead {
   margin-bottom: @line-height-computed;
   font-size: floor((@font-size-base * 1.15));
-  font-weight: 200;
+  font-weight: @lead-font-weight;
   line-height: 1.4;
 
   @media (min-width: @screen-sm-min) {
@@ -78,8 +78,8 @@ p {
 }
 
 
-// Emphasis & misc
-// -------------------------
+// Emphasis
+// --------
 
 // Additional emphasis class for small text
 .small {

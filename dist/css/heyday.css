@@ -458,7 +458,7 @@ p {
 .lead {
   margin-bottom: 20px;
   font-size: 16px;
-  font-weight: 200;
+  font-weight: inherit;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
