@@ -1,10 +1,10 @@
 //
 // Typography
-// --------------------------------------------------
+//
 
 
 // Headings
-// -------------------------
+// --------
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -50,7 +50,6 @@ h3, .h3 { font-size: @font-size-h3; }
 h4, .h4 { font-size: @font-size-h4; }
 h5, .h5 { font-size: @font-size-h5; }
 h6, .h6 { font-size: @font-size-h6; }
-
 
 // Body text
 // -------------------------
@@ -277,15 +276,11 @@ blockquote {
     }
   }
 
-  // Deprecating small and .small for v3.1
-  // Context: https://github.com/twbs/bootstrap/issues/11660
-  footer,
-  small,
-  .small {
+  footer {
     display: block;
     font-size: 80%; // back to default font-size
     line-height: @line-height-base;
-    color: @blockquote-small-color;
+    color: @blockquote-footer-color;
 
     &:before {
       content: '\2014 \00A0'; // em dash, nbsp
@@ -294,10 +289,7 @@ blockquote {
 }
 
 // Opposite alignment of blockquote
-//
-// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.
-.blockquote-reverse,
-blockquote.pull-right {
+.blockquote-reverse {
   padding-right: 15px;
   padding-left: 0;
   border-right: 5px solid @blockquote-border-color;
@@ -305,10 +297,11 @@ blockquote.pull-right {
   text-align: right;
 
   // Account for citation
-  footer,
-  small,
-  .small {
-    &:before { content: ''; }
+  footer {
+    &:before {
+      content: '';
+    }
+
     &:after {
       content: '\00A0 \2014'; // nbsp, em dash
     }
