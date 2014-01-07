@@ -12,8 +12,6 @@ Heyday uses Grunt to compile code.
 
 ### Dependencies
 
-From the command line:
-
 * Install `grunt-cli` globally with `npm install -g grunt-cli`.
 * Navigate to the root `heyday/` directory, then run `npm install` to get
 required packages.
