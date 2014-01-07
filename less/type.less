@@ -2,7 +2,6 @@
 // Typography
 //
 
-
 // Headings
 // --------
 
@@ -50,6 +49,15 @@ h3, .h3 { font-size: @font-size-h3; }
 h4, .h4 { font-size: @font-size-h4; }
 h5, .h5 { font-size: @font-size-h5; }
 h6, .h6 { font-size: @font-size-h6; }
+
+// Page header
+// -----------
+
+.page-header {
+  padding-bottom: ((@line-height-computed / 2) - 1);
+  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  border-bottom: 1px solid @page-header-border-color;
+}
 
 // Body text
 // -------------------------
@@ -159,16 +167,6 @@ cite {
   a&:hover {
     background-color: darken(@state-info-bg, 10%);
   }
-}
-
-
-// Page header
-// -------------------------
-
-.page-header {
-  padding-bottom: ((@line-height-computed / 2) - 1);
-  margin: (@line-height-computed * 2) 0 @line-height-computed;
-  border-bottom: 1px solid @page-header-border-color;
 }
 
 
