@@ -8,7 +8,7 @@ To get started, check out <http://dev.pulsir.eu/heyday>.
 
 ## Compiling
 
-Heyday uses Grunt to compile code.
+Heyday uses Grunt to compile source code.
 
 ### Dependencies
 
