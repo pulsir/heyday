@@ -1,18 +1,18 @@
 {
   "name": "heyday",
-  "version": "1.0.0",
   "author": "Pulsir team",
   "description": "A bloat-free front-end framework for your next project",
-  "main": [
-    "dist/css/heyday.css",
-    "dist/js/heyday.js"
-  ],
   "keywords": [
     "css",
     "heyday",
     "pulsir"
   ],
+  "version": "1.0.0",
   "license": "The :) License",
+  "main": [
+    "dist/css/heyday.css",
+    "dist/js/heyday.js"
+  ],
   "dependencies": {
     "jquery": ">= 1.9.0"
   }
