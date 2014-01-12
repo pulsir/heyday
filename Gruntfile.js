@@ -11,7 +11,7 @@ module.exports = function (grunt) {
     return string.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
   }
 
-  // Project configuration
+  // Configuration
   grunt.initConfig({
     // Metadata
     pkg: grunt.file.readJSON('package.json'),
@@ -48,9 +48,9 @@ module.exports = function (grunt) {
               ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
               ' * Licensed under <%= pkg.license %>.\n' +
               ' */\n',
-    jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error("Heyday requires jQuery") }\n\n',
+    jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'Heyday requires jQuery\') }\n\n',
 
-    // Tasks configuration
+    // Tasks
     clean: {
       dist: 'dist'
     },
@@ -196,7 +196,6 @@ module.exports = function (grunt) {
     }
   });
 
-
   // Load plugins
   require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
 
@@ -220,5 +219,5 @@ module.exports = function (grunt) {
   //   $ grunt change-version --old=A.B.C --new=X.Y.Z
   //
   // Changes should always be manually reviewed!
-  grunt.registerTask('change-version', ['sed']);
+  grunt.registerTask('change-version', 'sed:version');
 };
