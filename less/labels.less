@@ -1,6 +1,9 @@
 //
 // Labels
-// --------------------------------------------------
+//
+
+// Base styles
+// -----------
 
 .label {
   display: inline;
@@ -14,8 +17,8 @@
   vertical-align: baseline;
   border-radius: .25em;
 
-  // Add hover effects, but only for links
-  &[href] {
+  // Add hover effects for links
+  a& {
     &:hover,
     &:focus {
       color: @label-link-hover-color;
@@ -24,7 +27,7 @@
     }
   }
 
-  // Empty labels collapse automatically (not available in IE8)
+  // Empty labels collapse automatically
   &:empty {
     display: none;
   }
@@ -36,8 +39,9 @@
   }
 }
 
-// Colors
-// Contextual variations (linked labels get darker on :hover)
+// Label variants
+// --------------
+// Linked labels are darker on `:hover`
 
 .label-default {
   .label-variant(@label-default-bg);

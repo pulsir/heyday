@@ -16,6 +16,16 @@
   background-color: @badge-bg;
   border-radius: @badge-border-radius;
 
+  // Hover state for links
+  a& {
+    &:hover,
+    &:focus {
+      color: @badge-link-hover-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
   // Empty badges collapse automatically
   &:empty {
     display: none;
@@ -25,16 +35,6 @@
   .btn & {
     position: relative;
     top: -1px;
-  }
-
-  // Hover state for links
-  a& {
-    &:hover,
-    &:focus {
-      color: @badge-link-hover-color;
-      text-decoration: none;
-      cursor: pointer;
-    }
   }
 
   // Account for counters in navs

@@ -3336,8 +3336,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
   vertical-align: baseline;
   border-radius: .25em;
 }
-.label[href]:hover,
-.label[href]:focus {
+a.label:hover,
+a.label:focus {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
@@ -3405,18 +3405,18 @@ textarea.input-group-sm > .input-group-btn > .btn {
   background-color: #999;
   border-radius: 10px;
 }
+a.badge:hover,
+a.badge:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
 .badge:empty {
   display: none;
 }
 .btn .badge {
   position: relative;
   top: -1px;
-}
-a.badge:hover,
-a.badge:focus {
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
 }
 a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
