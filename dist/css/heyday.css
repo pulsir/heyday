@@ -4146,7 +4146,6 @@ button.close {
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, .15);
   border-radius: 0;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
@@ -4290,7 +4289,6 @@ button.close {
   position: relative;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 0;
   outline: none;
@@ -4468,7 +4466,6 @@ button.close {
   white-space: normal;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 0;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
@@ -4519,7 +4516,6 @@ button.close {
   bottom: -11px;
   left: 50%;
   margin-left: -11px;
-  border-top-color: #999;
   border-top-color: rgba(0, 0, 0, .25);
   border-bottom-width: 0;
 }
@@ -4534,7 +4530,6 @@ button.close {
   top: 50%;
   left: -11px;
   margin-top: -11px;
-  border-right-color: #999;
   border-right-color: rgba(0, 0, 0, .25);
   border-left-width: 0;
 }
@@ -4550,7 +4545,6 @@ button.close {
   left: 50%;
   margin-left: -11px;
   border-top-width: 0;
-  border-bottom-color: #999;
   border-bottom-color: rgba(0, 0, 0, .25);
 }
 .popover.bottom .arrow:after {
@@ -4565,7 +4559,6 @@ button.close {
   right: -11px;
   margin-top: -11px;
   border-right-width: 0;
-  border-left-color: #999;
   border-left-color: rgba(0, 0, 0, .25);
 }
 .popover.left .arrow:after {

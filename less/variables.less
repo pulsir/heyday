@@ -41,9 +41,10 @@
 @line-height-large:                         1.33;
 
 // Border radius
+// By default it's zero, but you can enlarge it.
 @border-radius-base:                        0;
-@border-radius-small:                       0;
-@border-radius-large:                       0;
+@border-radius-sm:                          0;
+@border-radius-lg:                          0;
 
 // Active state properties
 @component-active-color:                    #fff;
@@ -547,8 +548,8 @@
 // Wells
 // -----
 
-@well-bg:                                   #f5f5f5;
-@well-border:                               darken(@well-bg, 7%);
+@well-bg-color:                             #f5f5f5;
+@well-border-color:                         darken(@well-bg-color, 7%);
 
 // Close icon
 // ----------
@@ -562,7 +563,6 @@
 
 @dropdown-bg:                               #fff;
 @dropdown-border:                           rgba(0,0,0,.15);
-@dropdown-fallback-border:                  #ccc;
 @dropdown-divider-bg:                       #e5e5e5;
 
 @dropdown-link-color:                       @gray-dark;
@@ -593,7 +593,6 @@
 @popover-bg:                                #fff;
 @popover-max-width:                         276px;
 @popover-border-color:                      rgba(0,0,0,.2);
-@popover-fallback-border-color:             #ccc;
 
 @popover-title-bg:                          darken(@popover-bg, 3%);
 
@@ -602,7 +601,6 @@
 
 @popover-arrow-outer-width:                 (@popover-arrow-width + 1);
 @popover-arrow-outer-color:                 rgba(0,0,0,.25);
-@popover-arrow-outer-fallback-color:        #999;
 
 // Modals
 // ------
@@ -614,7 +612,6 @@
 
 @modal-content-bg:                          #fff;
 @modal-content-border-color:                rgba(0,0,0,.2);
-@modal-content-fallback-border-color:       #999;
 
 @modal-backdrop-bg:                         #000;
 @modal-backdrop-opacity:                    .5;
