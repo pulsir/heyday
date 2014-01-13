@@ -1,9 +1,7 @@
 //
 // Badges
-// --------------------------------------------------
+//
 
-
-// Base classes
 .badge {
   display: inline-block;
   min-width: 10px;
@@ -18,7 +16,7 @@
   background-color: @badge-bg;
   border-radius: @badge-border-radius;
 
-  // Empty badges collapse automatically (not available in IE8)
+  // Empty badges collapse automatically
   &:empty {
     display: none;
   }
@@ -28,24 +26,25 @@
     position: relative;
     top: -1px;
   }
-}
 
-// Hover state, but only for links
-a.badge {
-  &:hover,
-  &:focus {
-    color: @badge-link-hover-color;
-    text-decoration: none;
-    cursor: pointer;
+  // Hover state for links
+  a& {
+    &:hover,
+    &:focus {
+      color: @badge-link-hover-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
   }
-}
 
-// Account for counters in navs
-a.list-group-item.active > .badge,
-.nav-pills > .active > a > .badge {
-  color: @badge-active-color;
-  background-color: @badge-active-bg;
-}
-.nav-pills > li > a > .badge {
-  margin-left: 3px;
+  // Account for counters in navs
+  a.list-group-item.active > &,
+  .nav-pills > .active > a > & {
+    color: @badge-active-color;
+    background-color: @badge-active-bg;
+  }
+
+  .nav-pills > li > a > & {
+    margin-left: 3px;
+  }
 }
