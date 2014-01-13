@@ -652,22 +652,24 @@
     width: percentage((@columns / @grid-columns));
   }
 }
+
 .make-md-column-offset(@columns) {
   @media (min-width: @screen-md-min) {
     margin-left: percentage((@columns / @grid-columns));
   }
 }
+
 .make-md-column-push(@columns) {
-  @media (min-width: @screen-md) {
+  @media (min-width: @screen-md-min) {
     left: percentage((@columns / @grid-columns));
   }
 }
+
 .make-md-column-pull(@columns) {
   @media (min-width: @screen-md-min) {
     right: percentage((@columns / @grid-columns));
   }
 }
-
 
 // Generate the large columns
 .make-lg-column(@columns; @gutter: @grid-gutter-width) {
