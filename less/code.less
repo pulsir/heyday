@@ -15,7 +15,7 @@ code {
   padding: 2px 4px;
   font-size: 90%;
   color: @code-color;
-  background-color: @code-bg;
+  background-color: @code-bg-color;
   white-space: nowrap;
   border-radius: @border-radius-base;
 }
@@ -25,7 +25,7 @@ kbd {
   padding: 2px 4px;
   font-size: 90%;
   color: @kbd-color;
-  background-color: @kbd-bg;
+  background-color: @kbd-bg-color;
   border-radius: @border-radius-sm;
   box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
 }
@@ -35,14 +35,14 @@ pre {
   display: block;
   padding: ((@line-height-computed - 1) / 2);
   margin: 0 0 (@line-height-computed / 2);
-  font-size: (@font-size-base - 1); // 14px to 13px
+  font-size: (@font-size-base - 1);
   line-height: @line-height-base;
   color: @pre-color;
-  background-color: @pre-bg;
+  background-color: @pre-bg-color;
   border: 1px solid @pre-border-color;
   border-radius: @border-radius-base;
 
-  // Account for some code outputs that place code tags in pre tags
+  // Account for `<code>`
   code {
     padding: 0;
     font-size: inherit;
@@ -53,7 +53,7 @@ pre {
   }
 }
 
-// Enable scrollable blocks of code
+// Scrollable blocks of code
 .pre-scrollable {
   max-height: @pre-scrollable-max-height;
   overflow-y: scroll;
