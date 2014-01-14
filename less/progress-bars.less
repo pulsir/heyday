@@ -1,10 +1,9 @@
 //
 // Progress bars
-// --------------------------------------------------
-
+//
 
 // Bar animations
-// -------------------------
+// --------------
 
 // WebKit
 @-webkit-keyframes progress-bar-stripes {
@@ -12,16 +11,14 @@
   to    { background-position: 0 0; }
 }
 
-// Spec and IE10+
+// Default
 @keyframes progress-bar-stripes {
   from  { background-position: 40px 0; }
   to    { background-position: 0 0; }
 }
 
-
-
 // Bar itself
-// -------------------------
+// ----------
 
 // Outer container
 .progress {
@@ -58,10 +55,8 @@
   .animation(progress-bar-stripes 2s linear infinite);
 }
 
-
-
 // Variations
-// -------------------------
+// ----------
 
 .progress-bar-success {
   .progress-bar-variant(@progress-bar-success-bg);

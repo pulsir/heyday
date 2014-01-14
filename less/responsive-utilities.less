@@ -1,72 +1,80 @@
 //
-// Responsive: Utility classes
-// --------------------------------------------------
+// Responsive utilities
+//
 
 // Visibility utilities
-.visible-xs,
-.visible-sm,
-.visible-md,
-.visible-lg {
-  .responsive-invisibility();
+// --------------------
+
+.shown-xs,
+.shown-sm,
+.shown-md,
+.shown-lg {
+  .responsive-hidden();
 }
 
-.visible-xs {
+.shown-xs {
   @media (max-width: @screen-xs-max) {
-    .responsive-visibility();
+    .responsive-shown();
   }
 }
-.visible-sm {
+
+.shown-sm {
   @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-    .responsive-visibility();
+    .responsive-shown();
   }
 }
-.visible-md {
+
+.shown-md {
   @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-    .responsive-visibility();
+    .responsive-shown();
   }
 }
-.visible-lg {
+
+.shown-lg {
   @media (min-width: @screen-lg-min) {
-    .responsive-visibility();
+    .responsive-shown();
   }
 }
 
 .hidden-xs {
   @media (max-width: @screen-xs-max) {
-    .responsive-invisibility();
+    .responsive-hidden();
   }
 }
+
 .hidden-sm {
   @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-    .responsive-invisibility();
+    .responsive-hidden();
   }
 }
+
 .hidden-md {
   @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-    .responsive-invisibility();
+    .responsive-hidden();
   }
 }
+
 .hidden-lg {
   @media (min-width: @screen-lg-min) {
-    .responsive-invisibility();
+    .responsive-hidden();
   }
 }
 
 
 // Print utilities
-//
-// Media queries are placed on the inside to be mixin-friendly.
+// ---------------
+// Media queries are placed on the inside to be mixinable.
 
-.visible-print {
-  .responsive-invisibility();
+.shown-print {
+  .responsive-hidden();
 
   @media print {
-    .responsive-visibility();
+    .responsive-shown();
   }
 }
 
 .hidden-print {
   @media print {
-    .responsive-invisibility();
+    .responsive-hidden();
   }
 }

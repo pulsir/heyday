@@ -1,19 +1,18 @@
 //
 // Scaffolding
-// --------------------------------------------------
+//
 
+// Base styles
+// -----------
 
-// Reset the box-sizing
-
+// Reset `box-sizing`
 *,
 *:before,
 *:after {
   .box-sizing(border-box);
 }
 
-
-// Body reset
-
+// Text styles
 html {
   font-size: 62.5%;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -23,11 +22,12 @@ body {
   font-family: @font-family-base;
   font-size: @font-size-base;
   line-height: @line-height-base;
-  color: @text-color;
+  color: @body-color;
   background-color: @body-bg-color;
 }
 
 // Links
+// -----
 
 a {
   color: @link-color;
@@ -44,34 +44,32 @@ a {
   }
 }
 
-
 // Images
+// ------
 
-// Rounded corners
+// Rounded version
 .img-rounded {
   border-radius: @border-radius-lg;
 }
 
+// Circle version
+.img-circle {
+  border-radius: 50%;
+}
+
 // Image thumbnails
-//
-// Heads up! This is mixin-ed into thumbnails.less for `.thumbnail`.
 .img-thumbnail {
   display: inline-block;
   padding: @thumbnail-padding;
   line-height: @line-height-base;
-  background-color: @thumbnail-bg;
-  border: 1px solid @thumbnail-border;
+  background-color: @thumbnail-bg-color;
+  border: 1px solid @thumbnail-border-color;
   border-radius: @thumbnail-border-radius;
   .transition(all .2s ease-in-out);
 }
 
-// Perfect circle
-.img-circle {
-  border-radius: 50%; // set radius in percents
-}
-
-
 // Horizontal rules
+// ----------------
 
 hr {
   margin-top: @line-height-computed;
@@ -80,10 +78,9 @@ hr {
   border-top: 1px solid @hr-border-color;
 }
 
-
-// Only display content to screen readers
-//
-// See: http://a11yproject.com/posts/how-to-hide-content/
+// Content only for screen readers
+// -------------------------------
+// http://a11yproject.com/posts/how-to-hide-content/
 
 .sr-only {
   position: absolute;

@@ -16,9 +16,9 @@
 
 @brand-primary:                             #428bca;
 @brand-success:                             #5cb85c;
+@brand-info:                                #5bc0de;
 @brand-warning:                             #f0ad4e;
 @brand-danger:                              #d9534f;
-@brand-info:                                #5bc0de;
 
 // Components
 // ----------
@@ -86,7 +86,7 @@
 
 // Body
 @body-bg-color:                             #fff;
-@text-color:                                @gray-dark;
+@body-color:                                @gray-dark;
 
 // Links
 @link-color:                                @brand-primary;
@@ -191,7 +191,7 @@
 // Padding, to be divided by two and applied to the left and right of all columns
 @grid-gutter-width:                         4%;
 
-// Containers
+// Container width
 @container-width:                           96%;
 
 // Tables
@@ -259,6 +259,10 @@
 @btn-success-bg:                            @brand-success;
 @btn-success-border:                        darken(@btn-success-bg, 5%);
 
+@btn-info-color:                            #fff;
+@btn-info-bg:                               @brand-info;
+@btn-info-border:                           darken(@btn-info-bg, 5%);
+
 @btn-warning-color:                         #fff;
 @btn-warning-bg:                            @brand-warning;
 @btn-warning-border:                        darken(@btn-warning-bg, 5%);
@@ -266,10 +270,6 @@
 @btn-danger-color:                          #fff;
 @btn-danger-bg:                             @brand-danger;
 @btn-danger-border:                         darken(@btn-danger-bg, 5%);
-
-@btn-info-color:                            #fff;
-@btn-info-bg:                               @brand-info;
-@btn-info-border:                           darken(@btn-info-bg, 5%);
 
 // Input groups
 // ------------
@@ -451,12 +451,12 @@
 // ----------
 
 @thumbnail-padding:                         4px;
-@thumbnail-bg:                              @body-bg-color;
-@thumbnail-border:                          #ddd;
+@thumbnail-bg-color:                        @body-bg-color;
+@thumbnail-border-color:                    #ddd;
 @thumbnail-border-radius:                   @border-radius-base;
 
-@thumbnail-caption-color:                   @text-color;
 @thumbnail-caption-padding:                 9px;
+@thumbnail-caption-color:                   inherit;
 
 // Alerts
 // ------
@@ -531,6 +531,10 @@
 @panel-success-border:                      @state-success-border;
 @panel-success-heading-bg:                  @state-success-bg;
 
+@panel-info-text:                           @state-info-text;
+@panel-info-border:                         @state-info-border;
+@panel-info-heading-bg:                     @state-info-bg;
+
 @panel-warning-text:                        @state-warning-text;
 @panel-warning-border:                      @state-warning-border;
 @panel-warning-heading-bg:                  @state-warning-bg;
@@ -538,10 +542,6 @@
 @panel-danger-text:                         @state-danger-text;
 @panel-danger-border:                       @state-danger-border;
 @panel-danger-heading-bg:                   @state-danger-bg;
-
-@panel-info-text:                           @state-info-text;
-@panel-info-border:                         @state-info-border;
-@panel-info-heading-bg:                     @state-info-bg;
 
 // Wells
 // -----

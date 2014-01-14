@@ -130,38 +130,38 @@
 // Transformations
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
-      -ms-transform: rotate(@degrees); // IE9 only
+      -ms-transform: rotate(@degrees); // IE 9
           transform: rotate(@degrees);
 }
 .scale(@ratio; @ratio-y...) {
   -webkit-transform: scale(@ratio, @ratio-y);
-      -ms-transform: scale(@ratio, @ratio-y); // IE9 only
+      -ms-transform: scale(@ratio, @ratio-y); // IE 9
           transform: scale(@ratio, @ratio-y);
 }
 .translate(@x; @y) {
   -webkit-transform: translate(@x, @y);
-      -ms-transform: translate(@x, @y); // IE9 only
+      -ms-transform: translate(@x, @y); // IE 9
           transform: translate(@x, @y);
 }
 .skew(@x; @y) {
   -webkit-transform: skew(@x, @y);
-      -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
+      -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twbs/bootstrap/issues/4885; IE 9+
           transform: skew(@x, @y);
 }
 .translate3d(@x; @y; @z) {
   -webkit-transform: translate3d(@x, @y, @z);
-      -ms-transform: translate3d(@x, @y, @z); // IE9 only
+      -ms-transform: translate3d(@x, @y, @z); // IE 9
           transform: translate3d(@x, @y, @z);
 }
 
 .rotateX(@degrees) {
   -webkit-transform: rotateX(@degrees);
-      -ms-transform: rotateX(@degrees); // IE9 only
+      -ms-transform: rotateX(@degrees); // IE 9
           transform: rotateX(@degrees);
 }
 .rotateY(@degrees) {
   -webkit-transform: rotateY(@degrees);
-      -ms-transform: rotateY(@degrees); // IE9 only
+      -ms-transform: rotateY(@degrees); // IE 9
           transform: rotateY(@degrees);
 }
 .perspective(@perspective) {
@@ -174,7 +174,7 @@
 }
 .transform-origin(@origin) {
   -webkit-transform-origin: @origin;
-      -ms-transform-origin: @origin; // IE9 only
+      -ms-transform-origin: @origin; // IE 9
           transform-origin: @origin;
 }
 
@@ -254,7 +254,7 @@
   word-wrap: break-word;
   -webkit-hyphens: @mode;
      -moz-hyphens: @mode;
-      -ms-hyphens: @mode; // IE10+
+      -ms-hyphens: @mode; // IE 10+
           hyphens: @mode;
 }
 
@@ -281,7 +281,7 @@
     background-image: -webkit-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); // Safari < 6
     background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Chrome, Firefox, Opera, Safari 7+, IE 10
     background-repeat: repeat-x;
-    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE 9
   }
 
   // Other
@@ -340,13 +340,10 @@
   }
 }
 
+// Dropdowns
+// ---------
 
-// COMPONENT MIXINS
-// --------------------------------------------------
-
-// Horizontal dividers
-// -------------------------
-// Dividers (basically an hr) within dropdowns and nav lists
+// Dividers (basically an hr) within dropdowns
 .nav-divider(@color: #e5e5e5) {
   height: 1px;
   margin: ((@line-height-computed / 2) - 1) 0;
@@ -355,7 +352,8 @@
 }
 
 // Panels
-// -------------------------
+// ------
+
 .panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
   border-color: @border;
 
@@ -552,21 +550,20 @@
 }
 
 // Responsive utilities
-// -------------------------
-// More easily include all the states for responsive-utilities.less.
-.responsive-visibility() {
+// --------------------
+
+// Generate responsive visibility styles
+.responsive-shown() {
   display: block !important;
-  table&  { display: table; }
+
+  table&  { display: table !important; }
   tr&     { display: table-row !important; }
   th&,
   td&     { display: table-cell !important; }
 }
 
-.responsive-invisibility() {
-    &,
-  tr&,
-  th&,
-  td& { display: none !important; }
+.responsive-hidden() {
+  display: none !important;
 }
 
 // Grid system
