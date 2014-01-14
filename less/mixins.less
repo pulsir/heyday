@@ -376,22 +376,26 @@
 }
 
 // Alerts
-// -------------------------
-.alert-variant(@background; @border; @text-color) {
+// ------
+
+// Generate contextual alert variants
+.alert-variant(@color; @background; @border) {
+  color: @color;
   background-color: @background;
   border-color: @border;
-  color: @text-color;
 
   hr {
     border-top-color: darken(@border, 5%);
   }
+
   .alert-link {
-    color: darken(@text-color, 10%);
+    color: darken(@color, 10%);
   }
 }
 
 // Tables
-// -------------------------
+// ------
+
 .table-row-variant(@state; @background) {
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
