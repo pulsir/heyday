@@ -1,29 +1,30 @@
 //
-// Pager pagination
-// --------------------------------------------------
-
+// Pager
+//
 
 .pager {
   padding-left: 0;
   margin: @line-height-computed 0;
   list-style: none;
   text-align: center;
+
   &:extend(.clearfix all);
+
   li {
     display: inline;
     > a,
     > span {
       display: inline-block;
       padding: 5px 14px;
-      background-color: @pager-bg;
-      border: 1px solid @pager-border;
+      background-color: @pager-bg-color;
+      border: 1px solid @pager-border-color;
       border-radius: @pager-border-radius;
     }
 
     > a:hover,
     > a:focus {
       text-decoration: none;
-      background-color: @pager-hover-bg;
+      background-color: @pager-hover-bg-color;
     }
   }
 
@@ -47,9 +48,8 @@
     > a:focus,
     > span {
       color: @pager-disabled-color;
-      background-color: @pager-bg;
+      background-color: @pager-bg-color;
       cursor: not-allowed;
     }
   }
-
 }

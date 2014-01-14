@@ -20,10 +20,10 @@
 @brand-danger:                              #d9534f;
 @brand-info:                                #5bc0de;
 
-// Component properties
-// --------------------
+// Components
+// ----------
 
-// Padding
+// Paddings
 @padding-base-vertical:                     6px;
 @padding-base-horizontal:                   12px;
 
@@ -36,19 +36,21 @@
 @padding-large-vertical:                    10px;
 @padding-large-horizontal:                  16px;
 
-// Line height
-@line-height-small:                         1.5;
-@line-height-large:                         1.33;
+// Line heights
+@line-height-base:                          1.428571429;
+@line-height-computed:                      floor((@font-size-base * @line-height-base));
+@line-height-sm:                            1.5;
+@line-height-lg:                            1.33;
 
-// Border radius
-// By default it's zero, but you can enlarge it.
+// Border radiuses
+// By default it's zero, but you can enlarge it
 @border-radius-base:                        0;
 @border-radius-sm:                          0;
 @border-radius-lg:                          0;
 
 // Active state properties
 @component-active-color:                    #fff;
-@component-active-bg:                       @brand-primary;
+@component-active-bg-color:                 @brand-primary;
 
 // States
 @state-success-text:                        #3c763d;
@@ -113,10 +115,6 @@
 @font-size-h4:                              ceil((@font-size-base * 1.25));
 @font-size-h5:                              @font-size-base;
 @font-size-h6:                              ceil((@font-size-base * 0.85));
-
-// Line heights
-@line-height-base:                          1.428571429; // 20/14
-@line-height-computed:                      floor((@font-size-base * @line-height-base));
 
 // Headings
 @headings-font-family:                      inherit;
@@ -239,8 +237,8 @@
 @input-border-focus:                        #66afe9;
 
 @input-height-base:                         (@line-height-computed + (@padding-base-vertical * 2) + 2);
-@input-height-large:                        (ceil(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2);
-@input-height-small:                        (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
+@input-height-sm:                           (floor(@font-size-small * @line-height-sm) + (@padding-small-vertical * 2) + 2);
+@input-height-lg:                           (ceil(@font-size-large * @line-height-lg) + (@padding-large-vertical * 2) + 2);
 
 @placeholder-color:                         @gray-light;
 
@@ -308,7 +306,7 @@
 
 // Pills
 @nav-pills-border-radius:                   @border-radius-base;
-@nav-pills-active-link-hover-bg:            @component-active-bg;
+@nav-pills-active-link-hover-bg:            @component-active-bg-color;
 @nav-pills-active-link-hover-color:         @component-active-color;
 
 // Navbar
@@ -375,7 +373,7 @@
 
 @breadcrumb-padding-vertical:               8px;
 @breadcrumb-padding-horizontal:             15px;
-@breadcrumb-bg:                             #f5f5f5;
+@breadcrumb-bg-color:                       #f5f5f5;
 @breadcrumb-color:                          #ccc;
 @breadcrumb-active-color:                   @gray-light;
 @breadcrumb-separator:                      "/";
@@ -384,32 +382,32 @@
 // ----------
 
 @pagination-color:                          @link-color;
-@pagination-bg:                             #fff;
-@pagination-border:                         #ddd;
+@pagination-bg-color:                       #fff;
+@pagination-border-color:                   #ddd;
 
 @pagination-hover-color:                    @link-hover-color;
-@pagination-hover-bg:                       @gray-lighter;
-@pagination-hover-border:                   #ddd;
+@pagination-hover-bg-color:                 @gray-lighter;
+@pagination-hover-border-color:             #ddd;
 
 @pagination-active-color:                   #fff;
-@pagination-active-bg:                      @brand-primary;
-@pagination-active-border:                  @brand-primary;
+@pagination-active-bg-color:                @brand-primary;
+@pagination-active-border-color:            @brand-primary;
 
 @pagination-disabled-color:                 @gray-light;
-@pagination-disabled-bg:                    #fff;
-@pagination-disabled-border:                #ddd;
+@pagination-disabled-bg-color:              #fff;
+@pagination-disabled-border-color:          #ddd;
 
 // Pager
 // -----
 
-@pager-bg:                                  @pagination-bg;
-@pager-border:                              @pagination-border;
+@pager-bg-color:                            @pagination-bg-color;
+@pager-border-color:                        @pagination-border-color;
 @pager-border-radius:                       15px;
 
-@pager-hover-bg:                            @pagination-hover-bg;
+@pager-hover-bg-color:                      @pagination-hover-bg-color;
 
-@pager-active-bg:                           @pagination-active-bg;
 @pager-active-color:                        @pagination-active-color;
+@pager-active-bg-color:                     @pagination-active-bg-color;
 
 @pager-disabled-color:                      @pagination-disabled-color;
 
@@ -504,7 +502,7 @@
 
 @list-group-hover-bg:                       #f5f5f5;
 @list-group-active-color:                   @component-active-color;
-@list-group-active-bg:                      @component-active-bg;
+@list-group-active-bg:                      @component-active-bg-color;
 @list-group-active-border:                  @list-group-active-bg;
 @list-group-active-text-color:              lighten(@list-group-active-bg, 40%);
 
@@ -570,7 +568,7 @@
 @dropdown-link-hover-bg:                    #f5f5f5;
 
 @dropdown-link-active-color:                @component-active-color;
-@dropdown-link-active-bg:                   @component-active-bg;
+@dropdown-link-active-bg:                   @component-active-bg-color;
 
 @dropdown-link-disabled-color:              @gray-light;
 

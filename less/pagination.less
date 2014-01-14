@@ -1,6 +1,7 @@
 //
-// Pagination (multiple pages)
-// --------------------------------------------------
+// Pagination
+//
+
 .pagination {
   display: inline-block;
   padding-left: 0;
@@ -8,7 +9,8 @@
   border-radius: @border-radius-base;
 
   > li {
-    display: inline; // Remove list-style and block-level defaults
+    display: inline; // Remove default list styles
+
     > a,
     > span {
       position: relative;
@@ -17,10 +19,11 @@
       line-height: @line-height-base;
       text-decoration: none;
       color: @pagination-color;
-      background-color: @pagination-bg;
-      border: 1px solid @pagination-border;
+      background-color: @pagination-bg-color;
+      border: 1px solid @pagination-border-color;
       margin-left: -1px;
     }
+
     &:first-child {
       > a,
       > span {
@@ -41,8 +44,8 @@
     &:hover,
     &:focus {
       color: @pagination-hover-color;
-      background-color: @pagination-hover-bg;
-      border-color: @pagination-hover-border;
+      background-color: @pagination-hover-bg-color;
+      border-color: @pagination-hover-border-color;
     }
   }
 
@@ -53,8 +56,8 @@
     &:focus {
       z-index: 2;
       color: @pagination-active-color;
-      background-color: @pagination-active-bg;
-      border-color: @pagination-active-border;
+      background-color: @pagination-active-bg-color;
+      border-color: @pagination-active-border-color;
       cursor: default;
     }
   }
@@ -67,22 +70,22 @@
     > a:hover,
     > a:focus {
       color: @pagination-disabled-color;
-      background-color: @pagination-disabled-bg;
-      border-color: @pagination-disabled-border;
+      background-color: @pagination-disabled-bg-color;
+      border-color: @pagination-disabled-border-color;
       cursor: not-allowed;
     }
   }
 }
 
 // Sizing
-// --------------------------------------------------
-
-// Large
-.pagination-lg {
-  .pagination-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @border-radius-lg);
-}
+// ------
 
 // Small
 .pagination-sm {
   .pagination-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @border-radius-sm);
+}
+
+// Large
+.pagination-lg {
+  .pagination-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @border-radius-lg);
 }
