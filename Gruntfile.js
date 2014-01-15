@@ -56,7 +56,7 @@ module.exports = function (grunt) {
     },
 
     less: {
-      compile: {
+      dist: {
         options: {
           strictMath: true,
           sourceMap: true,
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
           '<%= heyday.css %>': '<%= heyday.less %>'
         }
       },
-      minify: {
+      distMin: {
         options: {
           cleancss: true,
           report: 'min'
