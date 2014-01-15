@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 
   // Configuration
   grunt.initConfig({
-    // Metadata
+    // Meta data
     pkg: grunt.file.readJSON('package.json'),
 
     // Paths
