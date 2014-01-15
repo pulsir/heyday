@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       }
     },
 
-    // Banner
+    // Banners
     banner: '/*!\n' +
               ' * Heyday v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
               ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
