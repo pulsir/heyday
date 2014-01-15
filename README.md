@@ -20,7 +20,7 @@ Once completed, you'll be able to run the various Grunt commands.
 
 ### Available commands
 
-#### Build: `grunt`
+#### Default: `grunt`
 
 Runs tests locally and compiles source code.
 
