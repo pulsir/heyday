@@ -2,8 +2,8 @@
  * Heyday: alert.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // ALERT CLASS DEFINITION
   // ======================

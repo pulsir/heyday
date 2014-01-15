@@ -2,8 +2,8 @@
  * Heyday: tab.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // TAB CLASS DEFINITION
   // ====================

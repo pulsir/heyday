@@ -2,8 +2,8 @@
  * Heyday: dropdown.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // DROPDOWN CLASS DEFINITION
   // =========================

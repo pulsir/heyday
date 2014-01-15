@@ -2,8 +2,8 @@
  * Heyday: button.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // BUTTON PUBLIC CLASS DEFINITION
   // ==============================

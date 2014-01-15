@@ -1,13 +1,9 @@
-/* ========================================================================
- * Bootstrap: carousel.js v1.0.0
- * http://getbootstrap.com/javascript/#carousel
- * ========================================================================
- * Copyright 2013 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+/*
+ * Heyday: carousel.js v1.0.0
+ */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // CAROUSEL CLASS DEFINITION
   // =========================
