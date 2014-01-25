@@ -32,12 +32,12 @@ $(function () {
         $.support.transition = false
         stop()
         $('<div class="collapse"/>')
-          .on('show.bs.collapse', function (e) {
+          .on('show.hd.collapse', function (e) {
             e.preventDefault();
             ok(true);
             start();
           })
-          .on('shown.bs.collapse', function () {
+          .on('shown.hd.collapse', function () {
             ok(false);
           })
           .collapse('show')
@@ -47,10 +47,10 @@ $(function () {
         $.support.transition = false
         stop()
         $('<div class="collapse" style="height: 0px"/>')
-          .on('show.bs.collapse', function () {
+          .on('show.hd.collapse', function () {
             ok(this.style.height == '0px')
           })
-          .on('shown.bs.collapse', function () {
+          .on('shown.hd.collapse', function () {
             ok(this.style.height == 'auto')
             start()
           })
@@ -66,7 +66,7 @@ $(function () {
 
         var collapsible = $('<div id="test1"></div>')
           .appendTo($('#qunit-fixture'))
-          .on('show.bs.collapse', function () {
+          .on('show.hd.collapse', function () {
             ok(!target.hasClass('collapsed'))
             start()
           })
@@ -83,7 +83,7 @@ $(function () {
 
         var collapsible = $('<div id="test1" class="in"></div>')
           .appendTo($('#qunit-fixture'))
-          .on('hide.bs.collapse', function () {
+          .on('hide.hd.collapse', function () {
             ok(target.hasClass('collapsed'))
             start()
           })
@@ -115,7 +115,7 @@ $(function () {
 
         var collapsible3 = $('<div id="body3"></div>')
           .appendTo(accordion.find('.accordion-group').eq(2))
-          .on('show.bs.collapse', function () {
+          .on('show.hd.collapse', function () {
             ok(target1.hasClass('collapsed'))
             ok(target2.hasClass('collapsed'))
             ok(!target3.hasClass('collapsed'))
@@ -150,7 +150,7 @@ $(function () {
 
         var collapsible3 = $('<div id="body3"></div>')
           .appendTo(accordion.find('.accordion-group').eq(2))
-          .on('show.bs.collapse', function () {
+          .on('show.hd.collapse', function () {
             ok(target1.hasClass('collapsed'))
             ok(target2.hasClass('collapsed'))
             ok(!target3.hasClass('collapsed'))

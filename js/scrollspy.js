@@ -14,10 +14,10 @@
 
     this.$element       = $(element).is('body') ? $(window) : $(element)
     this.$body          = $('body')
-    this.$scrollElement = this.$element.on('scroll.bs.scroll-spy.data-api', process)
+    this.$scrollElement = this.$element.on('scroll.hd.scroll-spy.data-api', process)
     this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
     this.selector       = (this.options.target
-      || ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
+      || (href = $(element).attr('href'))
       || '') + ' .nav li > a'
     this.offsets        = $([])
     this.targets        = $([])
@@ -98,7 +98,7 @@
         .addClass('active')
     }
 
-    active.trigger('activate.bs.scrollspy')
+    active.trigger('activate.hd.scrollspy')
   }
 
 
@@ -110,10 +110,10 @@
   $.fn.scrollspy = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.scrollspy')
+      var data    = $this.data('hd.scrollspy')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+      if (!data) $this.data('hd.scrollspy', (data = new ScrollSpy(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }

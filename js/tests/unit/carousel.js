@@ -20,12 +20,12 @@ $(function () {
         $.support.transition = false
         stop()
         $('<div class="carousel"/>')
-          .on('slide.bs.carousel', function (e) {
+          .on('slide.hd.carousel', function (e) {
             e.preventDefault();
             ok(true);
             start();
           })
-          .on('slid.bs.carousel', function () {
+          .on('slid.hd.carousel', function () {
             ok(false);
           })
           .carousel('next')
@@ -36,7 +36,7 @@ $(function () {
         var $carousel = $(template)
         $.support.transition = false
         stop()
-        $carousel.one('slide.bs.carousel', function (e) {
+        $carousel.one('slide.hd.carousel', function (e) {
           e.preventDefault()
           setTimeout(function () {
             ok($carousel.find('.item:eq(0)').is('.active'))
@@ -44,7 +44,7 @@ $(function () {
             $carousel.carousel('next')
           }, 1);
         })
-        $carousel.one('slid.bs.carousel', function () {
+        $carousel.one('slid.hd.carousel', function () {
           setTimeout(function () {
             ok($carousel.find('.item:eq(1)').is('.active'))
             ok($carousel.find('.carousel-indicators li:eq(1)').is('.active'))
@@ -58,7 +58,7 @@ $(function () {
         var template = '<div id="myCarousel" class="carousel slide"><div class="carousel-inner"><div class="item active"><img alt=""><div class="carousel-caption"><h4>{{_i}}First Thumbnail label{{/i}}</h4><p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p></div></div><div class="item"><img alt=""><div class="carousel-caption"><h4>{{_i}}Second Thumbnail label{{/i}}</h4><p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p></div></div><div class="item"><img alt=""><div class="carousel-caption"><h4>{{_i}}Third Thumbnail label{{/i}}</h4><p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p></div></div></div><a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a><a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a></div>'
         $.support.transition = false
         stop()
-        $(template).on('slide.bs.carousel', function (e) {
+        $(template).on('slide.hd.carousel', function (e) {
           e.preventDefault()
           ok(e.direction)
           ok(e.direction === 'right' || e.direction === 'left')
@@ -71,7 +71,7 @@ $(function () {
         $.support.transition = false
         stop()
         $(template)
-          .on('slide.bs.carousel', function (e) {
+          .on('slide.hd.carousel', function (e) {
             e.preventDefault();
             ok(e.relatedTarget);
             ok($(e.relatedTarget).hasClass('item'));
@@ -86,25 +86,25 @@ $(function () {
 
         template.appendTo('body');
         $('[data-slide]').first().click();
-        ok($('#myCarousel').data('bs.carousel').options.interval == 1814);
+        ok($('#myCarousel').data('hd.carousel').options.interval == 1814);
         $('#myCarousel').remove();
 
         template.appendTo('body').attr('data-modal', 'foobar');
         $('[data-slide]').first().click();
-        ok($('#myCarousel').data('bs.carousel').options.interval == 1814, 'even if there is an data-modal attribute set');
+        ok($('#myCarousel').data('hd.carousel').options.interval == 1814, 'even if there is an data-modal attribute set');
         $('#myCarousel').remove();
 
         template.appendTo('body');
         $('[data-slide]').first().click();
         $('#myCarousel').attr('data-interval', 1860);
         $('[data-slide]').first().click();
-        ok($('#myCarousel').data('bs.carousel').options.interval == 1814, 'attributes should be read only on intitialization');
+        ok($('#myCarousel').data('hd.carousel').options.interval == 1814, 'attributes should be read only on intitialization');
         $('#myCarousel').remove();
 
         template.attr('data-interval', false);
         template.appendTo('body');
         $('#myCarousel').carousel(1);
-        ok($('#myCarousel').data('bs.carousel').options.interval === false, 'data attribute has higher priority than default options');
+        ok($('#myCarousel').data('hd.carousel').options.interval === false, 'data attribute has higher priority than default options');
         $('#myCarousel').remove();
       })
 })

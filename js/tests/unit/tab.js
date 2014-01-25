@@ -51,12 +51,12 @@ $(function () {
         $.support.transition = false
         stop();
         $('<div class="tab"/>')
-          .on('show.bs.tab', function (e) {
+          .on('show.hd.tab', function (e) {
             e.preventDefault();
             ok(true);
             start();
           })
-          .on('shown.bs.tab', function () {
+          .on('shown.hd.tab', function () {
             ok(false);
           })
           .tab('show')
@@ -73,11 +73,14 @@ $(function () {
             '</ul>'
 
         $(dropHTML).find('ul>li:first a').tab('show').end()
-          .find('ul>li:last a').on('show', function (event) {
+          .find('ul>li:last a')
+          .on('show.hd.tab', function (event) {
             equal(event.relatedTarget.hash, '#1-1')
-          }).on('shown', function (event) {
+          })
+          .on('show.hd.tab', function (event) {
             equal(event.relatedTarget.hash, '#1-1')
-          }).tab('show')
+          })
+          .tab('show')
       })
 
 })

@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Heyday JavaScript test suite</title>
+  <title>Heyday plugin test suite</title>
 
   <!-- jQuery -->
-  <script src="vendor/jquery.js"></script>
+  <script src="vendor/jquery.min.js"></script>
 
   <!-- QUnit -->
   <link rel="stylesheet" href="vendor/qunit.css">
   <script src="vendor/qunit.js"></script>
+  <script>
+    // See https://github.com/axemclion/grunt-saucelabs#test-result-details-with-qunit
+    QUnit.done(function (results) {
+      window.global_test_results = results
+    })
+  </script>
 
-  <!-- Plugins -->
-  <script src="../../js/transition.js"></script>
+  <!-- Plugin sources -->
+  <script>$.support.transition = false</script>
   <script src="../../js/alert.js"></script>
   <script src="../../js/button.js"></script>
   <script src="../../js/carousel.js"></script>
@@ -38,14 +43,10 @@
   <script src="unit/tooltip.js"></script>
   <script src="unit/popover.js"></script>
   <script src="unit/affix.js"></script>
-
 </head>
 <body>
   <div>
-    <h1 id="qunit-header">Heyday JavaScript test suite</h1>
-    <h2 id="qunit-banner"></h2>
-    <h2 id="qunit-userAgent"></h2>
-    <ol id="qunit-tests"></ol>
+    <div id="qunit"></div>
     <div id="qunit-fixture"></div>
   </div>
 </body>

@@ -14,7 +14,7 @@
   }
 
   Button.DEFAULTS = {
-    loadingText: 'loading...'
+    loadingText: 'Loading...'
   }
 
   Button.prototype.setState = function (state) {
@@ -65,10 +65,10 @@
   $.fn.button = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.button')
+      var data    = $this.data('hd.button')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.button', (data = new Button(this, options)))
+      if (!data) $this.data('hd.button', (data = new Button(this, options)))
 
       if (option == 'toggle') data.toggle()
       else if (option) data.setState(option)
@@ -90,7 +90,7 @@
   // BUTTON DATA-API
   // ===============
 
-  $(document).on('click.bs.button.data-api', '[data-toggle^=button]', function (e) {
+  $(document).on('click.hd.button.data-api', '[data-toggle^=button]', function (e) {
     var $btn = $(e.target)
     if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
     $btn.button('toggle')

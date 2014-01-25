@@ -19,13 +19,13 @@
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = selector
     }
 
     if ($this.parent('li').hasClass('active')) return
 
     var previous = $ul.find('.active:last a')[0]
-    var e        = $.Event('show.bs.tab', {
+    var e        = $.Event('show.hd.tab', {
       relatedTarget: previous
     })
 
@@ -38,7 +38,7 @@
     this.activate($this.parent('li'), $ul)
     this.activate($target, $target.parent(), function () {
       $this.trigger({
-        type: 'shown.bs.tab',
+        type: 'shown.hd.tab',
         relatedTarget: previous
       })
     })
@@ -90,9 +90,9 @@
   $.fn.tab = function ( option ) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.tab')
+      var data  = $this.data('hd.tab')
 
-      if (!data) $this.data('bs.tab', (data = new Tab(this)))
+      if (!data) $this.data('hd.tab', (data = new Tab(this)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -112,7 +112,7 @@
   // TAB DATA-API
   // ============
 
-  $(document).on('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
+  $(document).on('click.hd.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
     e.preventDefault()
     $(this).tab('show')
   })

@@ -29,7 +29,7 @@
 
   Modal.prototype.show = function (_relatedTarget) {
     var that = this
-    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
+    var e    = $.Event('show.hd.modal', { relatedTarget: _relatedTarget })
 
     this.$element.trigger(e)
 
@@ -60,7 +60,7 @@
 
       that.enforceFocus()
 
-      var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
+      var e = $.Event('shown.hd.modal', { relatedTarget: _relatedTarget })
 
       transition ?
         that.$element.find('.modal-dialog') // wait for modal to slide in
@@ -75,7 +75,7 @@
   Modal.prototype.hide = function (e) {
     if (e) e.preventDefault()
 
-    e = $.Event('hide.bs.modal')
+    e = $.Event('hide.hd.modal')
 
     this.$element.trigger(e)
 
@@ -85,7 +85,7 @@
 
     this.escape()
 
-    $(document).off('focusin.bs.modal')
+    $(document).off('focusin.hd.modal')
 
     this.$element
       .removeClass('in')
@@ -101,8 +101,8 @@
 
   Modal.prototype.enforceFocus = function () {
     $(document)
-      .off('focusin.bs.modal') // guard against infinite focus loop
-      .on('focusin.bs.modal', $.proxy(function (e) {
+      .off('focusin.hd.modal') // guard against infinite focus loop
+      .on('focusin.hd.modal', $.proxy(function (e) {
         if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
           this.$element.focus()
         }
@@ -111,11 +111,11 @@
 
   Modal.prototype.escape = function () {
     if (this.isShown && this.options.keyboard) {
-      this.$element.on('keyup.dismiss.bs.modal', $.proxy(function (e) {
+      this.$element.on('keyup.dismiss.hd.modal', $.proxy(function (e) {
         e.which == 27 && this.hide()
       }, this))
     } else if (!this.isShown) {
-      this.$element.off('keyup.dismiss.bs.modal')
+      this.$element.off('keyup.dismiss.hd.modal')
     }
   }
 
@@ -124,7 +124,7 @@
     this.$element.hide()
     this.backdrop(function () {
       that.removeBackdrop()
-      that.$element.trigger('hidden.bs.modal')
+      that.$element.trigger('hidden.hd.modal')
     })
   }
 
@@ -184,10 +184,10 @@
   $.fn.modal = function (option, _relatedTarget) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.modal')
+      var data    = $this.data('hd.modal')
       var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
+      if (!data) $this.data('hd.modal', (data = new Modal(this, options)))
       if (typeof option == 'string') data[option](_relatedTarget)
       else if (options.show) data.show(_relatedTarget)
     })
@@ -208,10 +208,10 @@
   // MODAL DATA-API
   // ==============
 
-  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
+  $(document).on('click.hd.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
-    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
+    var $target = $($this.attr('data-target') || href)
     var option  = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
 
     e.preventDefault()
@@ -224,7 +224,7 @@
   })
 
   $(document)
-    .on('show.bs.modal',  '.modal', function () { $(document.body).addClass('modal-open') })
-    .on('hidden.bs.modal', '.modal', function () { $(document.body).removeClass('modal-open') })
+    .on('show.hd.modal',  '.modal', function () { $(document.body).addClass('modal-open') })
+    .on('hidden.hd.modal', '.modal', function () { $(document.body).removeClass('modal-open') })
 
 }(jQuery);

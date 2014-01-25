@@ -19,7 +19,7 @@
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+      selector = selector
     }
 
     var $parent = $(selector)
@@ -30,14 +30,14 @@
       $parent = $this.hasClass('alert') ? $this : $this.parent()
     }
 
-    $parent.trigger(e = $.Event('close.bs.alert'))
+    $parent.trigger(e = $.Event('close.hd.alert'))
 
     if (e.isDefaultPrevented()) return
 
     $parent.removeClass('in')
 
     function removeElement() {
-      $parent.trigger('closed.bs.alert').remove()
+      $parent.trigger('closed.hd.alert').remove()
     }
 
     $.support.transition && $parent.hasClass('fade') ?
@@ -56,9 +56,9 @@
   $.fn.alert = function (option) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.alert')
+      var data  = $this.data('hd.alert')
 
-      if (!data) $this.data('bs.alert', (data = new Alert(this)))
+      if (!data) $this.data('hd.alert', (data = new Alert(this)))
       if (typeof option == 'string') data[option].call($this)
     })
   }
@@ -78,6 +78,6 @@
   // ALERT DATA-API
   // ==============
 
-  $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
+  $(document).on('click.hd.alert.data-api', dismiss, Alert.prototype.close)
 
 }(jQuery);

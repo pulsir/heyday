@@ -31,8 +31,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
         return { end: transEndEventNames[name] }
       }
     }
-
-    return false // explicit for ie8 (  ._.)
   }
 
   // http://blog.alexmaccaw.com/css-transitions
@@ -71,7 +69,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+      selector = selector
     }
 
     var $parent = $(selector)
@@ -150,7 +148,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   }
 
   Button.DEFAULTS = {
-    loadingText: 'loading...'
+    loadingText: 'Loading...'
   }
 
   Button.prototype.setState = function (state) {
@@ -560,6 +558,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
+      if (!data && options.toggle && option == 'show') option = !option
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -584,7 +583,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     var $this   = $(this), href
     var target  = $this.attr('data-target')
         || e.preventDefault()
-        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+        || (href = $this.attr('href'))
     var $target = $(target)
     var data    = $target.data('bs.collapse')
     var option  = data ? 'toggle' : $this.data()
@@ -633,13 +632,14 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
         $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       }
 
-      $parent.trigger(e = $.Event('show.bs.dropdown'))
+      var relatedTarget = { relatedTarget: this }
+      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
 
       if (e.isDefaultPrevented()) return
 
       $parent
         .toggleClass('open')
-        .trigger('shown.bs.dropdown')
+        .trigger('shown.bs.dropdown', relatedTarget)
 
       $this.focus()
     }
@@ -665,7 +665,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       return $this.click()
     }
 
-    var $items = $('[role=menu] li:not(.divider):visible a', $parent)
+    var desc = ' li:not(.divider):visible a'
+    var $items = $parent.find('[role=menu]' + desc + ', [role=listbox]' + desc)
 
     if (!$items.length) return
 
@@ -678,14 +679,15 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $items.eq(index).focus()
   }
 
-  function clearMenus() {
+  function clearMenus(e) {
     $(backdrop).remove()
-    $(toggle).each(function (e) {
+    $(toggle).each(function () {
       var $parent = getParent($(this))
+      var relatedTarget = { relatedTarget: this }
       if (!$parent.hasClass('open')) return
-      $parent.trigger(e = $.Event('hide.bs.dropdown'))
+      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
       if (e.isDefaultPrevented()) return
-      $parent.removeClass('open').trigger('hidden.bs.dropdown')
+      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
     })
   }
 
@@ -694,7 +696,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '')
     }
 
     var $parent = selector && $(selector)
@@ -737,7 +739,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     .on('click.bs.dropdown.data-api', clearMenus)
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu]', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu], [role=listbox]', Dropdown.prototype.keydown)
 
 }(jQuery);
 
@@ -954,7 +956,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
-    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
+    var $target = $($this.attr('data-target') || href)
     var option  = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
 
     e.preventDefault()
@@ -1128,7 +1130,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
         var $parent = this.$element.parent()
 
         var orgPlacement = placement
-        var docScroll    = document.documentElement.scrollTop || document.body.scrollTop
+        var docScroll    = document.documentElement.scrollTop
         var parentWidth  = this.options.container == 'body' ? window.innerWidth  : $parent.outerWidth()
         var parentHeight = this.options.container == 'body' ? window.innerHeight : $parent.outerHeight()
         var parentLeft   = this.options.container == 'body' ? 0 : $parent.offset().left
@@ -1171,7 +1173,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     var marginTop = parseInt($tip.css('margin-top'), 10)
     var marginLeft = parseInt($tip.css('margin-left'), 10)
 
-    // we must check for NaN for ie 8/9
+    // we must check for NaN for IE 9
     if (isNaN(marginTop))  marginTop  = 0
     if (isNaN(marginLeft)) marginLeft = 0
 
@@ -1486,7 +1488,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     this.$scrollElement = this.$element.on('scroll.bs.scroll-spy.data-api', process)
     this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
     this.selector       = (this.options.target
-      || ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
+      || (href = $(element).attr('href')) 
       || '') + ' .nav li > a'
     this.offsets        = $([])
     this.targets        = $([])
@@ -1632,7 +1634,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = selector
     }
 
     if ($this.parent('li').hasClass('active')) return

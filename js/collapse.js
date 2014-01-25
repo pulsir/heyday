@@ -29,17 +29,17 @@
   Collapse.prototype.show = function () {
     if (this.transitioning || this.$element.hasClass('in')) return
 
-    var startEvent = $.Event('show.bs.collapse')
+    var startEvent = $.Event('show.hd.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
     var actives = this.$parent && this.$parent.find('> .panel > .in')
 
     if (actives && actives.length) {
-      var hasData = actives.data('bs.collapse')
+      var hasData = actives.data('hd.collapse')
       if (hasData && hasData.transitioning) return
       actives.collapse('hide')
-      hasData || actives.data('bs.collapse', null)
+      hasData || actives.data('hd.collapse', null)
     }
 
     var dimension = this.dimension()
@@ -57,7 +57,7 @@
         .addClass('in')
         [dimension]('auto')
       this.transitioning = 0
-      this.$element.trigger('shown.bs.collapse')
+      this.$element.trigger('shown.hd.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
@@ -73,7 +73,7 @@
   Collapse.prototype.hide = function () {
     if (this.transitioning || !this.$element.hasClass('in')) return
 
-    var startEvent = $.Event('hide.bs.collapse')
+    var startEvent = $.Event('hide.hd.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
@@ -93,7 +93,7 @@
     var complete = function () {
       this.transitioning = 0
       this.$element
-        .trigger('hidden.bs.collapse')
+        .trigger('hidden.hd.collapse')
         .removeClass('collapsing')
         .addClass('collapse')
     }
@@ -119,10 +119,11 @@
   $.fn.collapse = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.collapse')
+      var data    = $this.data('hd.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
+      if (!data && options.toggle && option == 'show') option = !option
+      if (!data) $this.data('hd.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -142,13 +143,13 @@
   // COLLAPSE DATA-API
   // =================
 
-  $(document).on('click.bs.collapse.data-api', '[data-toggle=collapse]', function (e) {
+  $(document).on('click.hd.collapse.data-api', '[data-toggle=collapse]', function (e) {
     var $this   = $(this), href
     var target  = $this.attr('data-target')
         || e.preventDefault()
-        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+        || (href = $this.attr('href'))
     var $target = $(target)
-    var data    = $target.data('bs.collapse')
+    var data    = $target.data('hd.collapse')
     var option  = data ? 'toggle' : $this.data()
     var parent  = $this.attr('data-parent')
     var $parent = parent && $(parent)

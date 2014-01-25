@@ -88,7 +88,7 @@
 
   Tooltip.prototype.enter = function (obj) {
     var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('bs.' + this.type)
+      obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('hd.' + this.type)
 
     clearTimeout(self.timeout)
 
@@ -103,7 +103,7 @@
 
   Tooltip.prototype.leave = function (obj) {
     var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('bs.' + this.type)
+      obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('hd.' + this.type)
 
     clearTimeout(self.timeout)
 
@@ -117,7 +117,7 @@
   }
 
   Tooltip.prototype.show = function () {
-    var e = $.Event('show.bs.' + this.type)
+    var e = $.Event('show.hd.' + this.type)
 
     if (this.hasContent() && this.enabled) {
       this.$element.trigger(e)
@@ -154,7 +154,7 @@
         var $parent = this.$element.parent()
 
         var orgPlacement = placement
-        var docScroll    = document.documentElement.scrollTop || document.body.scrollTop
+        var docScroll    = document.documentElement.scrollTop
         var parentWidth  = this.options.container == 'body' ? window.innerWidth  : $parent.outerWidth()
         var parentHeight = this.options.container == 'body' ? window.innerHeight : $parent.outerHeight()
         var parentLeft   = this.options.container == 'body' ? 0 : $parent.offset().left
@@ -176,7 +176,7 @@
       this.hoverState = null
 
       var complete = function() {
-        that.$element.trigger('shown.bs.' + that.type)
+        that.$element.trigger('shown.hd.' + that.type)
       }
 
       $.support.transition && this.$tip.hasClass('fade') ?
@@ -197,7 +197,7 @@
     var marginTop = parseInt($tip.css('margin-top'), 10)
     var marginLeft = parseInt($tip.css('margin-left'), 10)
 
-    // we must check for NaN for ie 8/9
+    // we must check for NaN for IE 9
     if (isNaN(marginTop))  marginTop  = 0
     if (isNaN(marginLeft)) marginLeft = 0
 
@@ -262,11 +262,11 @@
   Tooltip.prototype.hide = function () {
     var that = this
     var $tip = this.tip()
-    var e    = $.Event('hide.bs.' + this.type)
+    var e    = $.Event('hide.hd.' + this.type)
 
     function complete() {
       if (that.hoverState != 'in') $tip.detach()
-      that.$element.trigger('hidden.bs.' + that.type)
+      that.$element.trigger('hidden.hd.' + that.type)
     }
 
     this.$element.trigger(e)
@@ -352,12 +352,12 @@
   }
 
   Tooltip.prototype.toggle = function (e) {
-    var self = e ? $(e.currentTarget)[this.type](this.getDelegateOptions()).data('bs.' + this.type) : this
+    var self = e ? $(e.currentTarget)[this.type](this.getDelegateOptions()).data('hd.' + this.type) : this
     self.tip().hasClass('in') ? self.leave(self) : self.enter(self)
   }
 
   Tooltip.prototype.destroy = function () {
-    this.hide().$element.off('.' + this.type).removeData('bs.' + this.type)
+    this.hide().$element.off('.' + this.type).removeData('hd.' + this.type)
   }
 
 
@@ -369,10 +369,10 @@
   $.fn.tooltip = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.tooltip')
+      var data    = $this.data('hd.tooltip')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
+      if (!data) $this.data('hd.tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }

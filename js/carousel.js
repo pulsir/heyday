@@ -54,7 +54,7 @@
 
     if (pos > (this.$items.length - 1) || pos < 0) return
 
-    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) })
+    if (this.sliding)       return this.$element.one('slid.hd.carousel', function () { that.to(pos) })
     if (activeIndex == pos) return this.pause().cycle()
 
     return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
@@ -98,7 +98,7 @@
 
     if ($next.hasClass('active')) return
 
-    var e = $.Event('slide.bs.carousel', { relatedTarget: $next[0], direction: direction })
+    var e = $.Event('slide.hd.carousel', { relatedTarget: $next[0], direction: direction })
     this.$element.trigger(e)
     if (e.isDefaultPrevented()) return
 
@@ -108,7 +108,7 @@
 
     if (this.$indicators.length) {
       this.$indicators.find('.active').removeClass('active')
-      this.$element.one('slid.bs.carousel', function () {
+      this.$element.one('slid.hd.carousel', function () {
         var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
         $nextIndicator && $nextIndicator.addClass('active')
       })
@@ -124,14 +124,14 @@
           $next.removeClass([type, direction].join(' ')).addClass('active')
           $active.removeClass(['active', direction].join(' '))
           that.sliding = false
-          setTimeout(function () { that.$element.trigger('slid.bs.carousel') }, 0)
+          setTimeout(function () { that.$element.trigger('slid.hd.carousel') }, 0)
         })
         .emulateTransitionEnd($active.css('transition-duration').slice(0, -1) * 1000)
     } else {
       $active.removeClass('active')
       $next.addClass('active')
       this.sliding = false
-      this.$element.trigger('slid.bs.carousel')
+      this.$element.trigger('slid.hd.carousel')
     }
 
     isCycling && this.cycle()
@@ -148,11 +148,11 @@
   $.fn.carousel = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.carousel')
+      var data    = $this.data('hd.carousel')
       var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
       var action  = typeof option == 'string' ? option : options.slide
 
-      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
+      if (!data) $this.data('hd.carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
       else if (action) data[action]()
       else if (options.interval) data.pause().cycle()
@@ -174,7 +174,7 @@
   // CAROUSEL DATA-API
   // =================
 
-  $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+  $(document).on('click.hd.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
     var $this   = $(this), href
     var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
     var options = $.extend({}, $target.data(), $this.data())
@@ -184,7 +184,7 @@
     $target.carousel(options)
 
     if (slideIndex = $this.attr('data-slide-to')) {
-      $target.data('bs.carousel').to(slideIndex)
+      $target.data('hd.carousel').to(slideIndex)
     }
 
     e.preventDefault()

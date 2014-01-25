@@ -1,27 +1,24 @@
 /*
- * grunt-contrib-qunit
- * http://gruntjs.com/
- *
- * Copyright (c) 2013 'Cowboy' Ben Alman, contributors
- * Licensed under the MIT license.
+ * Modified grunt-contrib-qunit [http://gruntjs.com/].
+ * Licensed under the MIT License.
  */
 
-/*global QUnit:true, alert:true*/
+/* global QUnit, alert */
 (function () {
   'use strict';
 
-  // Don't re-order tests.
+  // Don't re-order tests
   QUnit.config.reorder = false
-  // Run tests serially, not in parallel.
+  // Run tests serially, not in parallel
   QUnit.config.autorun = false
 
-  // Send messages to the parent PhantomJS process via alert! Good times!!
+  // Send messages to the parent PhantomJS process via alert! Good times!
   function sendMessage() {
     var args = [].slice.call(arguments)
     alert(JSON.stringify(args))
   }
 
-  // These methods connect QUnit to PhantomJS.
+  // These methods connect QUnit to PhantomJS
   QUnit.log = function (obj) {
     // What is this I don’t even
     if (obj.message === '[object Object], undefined:undefined') { return }
@@ -46,8 +43,7 @@
 
   QUnit.begin = function () {
     sendMessage('qunit.begin')
-    console.log('Starting test suite')
-    console.log('================================================\n')
+    console.log('\n\n>> Starting test suite...\n')
   }
 
   QUnit.moduleDone = function (opts) {
@@ -60,10 +56,8 @@
   }
 
   QUnit.done = function (opts) {
-    console.log('\n================================================')
-    console.log('Tests completed in ' + opts.runtime + ' milliseconds')
+    console.log('\nTests completed in ' + opts.runtime + ' milliseconds.')
     console.log(opts.passed + ' tests of ' + opts.total + ' passed, ' + opts.failed + ' failed.')
     sendMessage('qunit.done', opts.failed, opts.passed, opts.total, opts.runtime)
   }
-
 }())

@@ -27,7 +27,7 @@ $(function () {
       stop()
       $.support.transition = false
       $('<div id="modal-test"></div>')
-        .on('shown.bs.modal', function () {
+        .on('shown.hd.modal', function () {
           ok($('#modal-test').length, 'modal inserted into dom')
           $(this).remove()
           start()
@@ -39,10 +39,10 @@ $(function () {
       stop()
       $.support.transition = false
       $('<div id="modal-test"></div>')
-        .on('show.bs.modal', function () {
+        .on('show.hd.modal', function () {
           ok(true, 'show was called')
         })
-        .on('shown.bs.modal', function () {
+        .on('shown.hd.modal', function () {
           $(this).remove()
           start()
         })
@@ -53,12 +53,12 @@ $(function () {
       stop()
       $.support.transition = false
       $('<div id="modal-test"></div>')
-        .on('show.bs.modal', function (e) {
+        .on('show.hd.modal', function (e) {
           e.preventDefault()
           ok(true, 'show was called')
           start()
         })
-        .on('shown.bs.modal', function () {
+        .on('shown.hd.modal', function () {
           ok(false, 'shown was called')
         })
         .modal('show')
@@ -69,12 +69,12 @@ $(function () {
       $.support.transition = false
 
       $('<div id="modal-test"></div>')
-        .on('shown.bs.modal', function () {
+        .on('shown.hd.modal', function () {
           ok($('#modal-test').is(':visible'), 'modal visible')
           ok($('#modal-test').length, 'modal inserted into dom')
           $(this).modal('hide')
         })
-        .on('hidden.bs.modal', function () {
+        .on('hidden.hd.modal', function () {
           ok(!$('#modal-test').is(':visible'), 'modal hidden')
           $('#modal-test').remove()
           start()
@@ -87,12 +87,12 @@ $(function () {
       $.support.transition = false
       var div = $('<div id="modal-test"></div>')
       div
-        .on('shown.bs.modal', function () {
+        .on('shown.hd.modal', function () {
           ok($('#modal-test').is(':visible'), 'modal visible')
           ok($('#modal-test').length, 'modal inserted into dom')
           div.modal('toggle')
         })
-        .on('hidden.bs.modal', function () {
+        .on('hidden.hd.modal', function () {
           ok(!$('#modal-test').is(':visible'), 'modal hidden')
           div.remove()
           start()
@@ -105,12 +105,12 @@ $(function () {
       $.support.transition = false
       var div = $('<div id="modal-test"><span class="close" data-dismiss="modal"></span></div>')
       div
-        .on('shown.bs.modal', function () {
+        .on('shown.hd.modal', function () {
           ok($('#modal-test').is(':visible'), 'modal visible')
           ok($('#modal-test').length, 'modal inserted into dom')
           div.find('.close').click()
         })
-        .on('hidden.bs.modal', function () {
+        .on('hidden.hd.modal', function () {
           ok(!$('#modal-test').is(':visible'), 'modal hidden')
           div.remove()
           start()
@@ -123,11 +123,11 @@ $(function () {
       $.support.transition = false
       var div = $('<div>', { id: 'modal-test', 'data-backdrop': false })
       div
-        .on('shown.bs.modal', function () {
+        .on('shown.hd.modal', function () {
           ok($('#modal-test').is(':visible'), 'modal visible')
           div.modal('hide')
         })
-        .on('hidden.bs.modal', function () {
+        .on('hidden.hd.modal', function () {
           ok(!$('#modal-test').is(':visible'), 'modal hidden')
           div.remove()
           start()
@@ -140,13 +140,13 @@ $(function () {
       $.support.transition = false
       var div = $('<div id="modal-test"><div class="contents"></div></div>')
       div
-        .bind('shown.bs.modal', function () {
+        .bind('shown.hd.modal', function () {
           ok($('#modal-test').length, 'modal insterted into dom')
           $('.contents').click()
           ok($('#modal-test').is(':visible'), 'modal visible')
           $('#modal-test').click()
         })
-        .bind('hidden.bs.modal', function () {
+        .bind('hidden.hd.modal', function () {
           ok(!$('#modal-test').is(':visible'), 'modal hidden')
           div.remove()
           start()
@@ -157,17 +157,16 @@ $(function () {
     test('should trigger hide event once when clicking outside of modal-content', function () {
       stop()
       $.support.transition = false
-      var div = $('<div id="modal-test"><div class="contents"></div></div>')
+
       var triggered
+      var div = $('<div id="modal-test"><div class="contents"></div></div>')
+
       div
-        .bind('shown.bs.modal', function () {
+        .bind('shown.hd.modal', function () {
           triggered = 0
           $('#modal-test').click()
         })
-        .one('hidden.bs.modal', function () {
-          div.modal('show')
-        })
-        .bind('hide.bs.modal', function () {
+        .bind('hide.hd.modal', function () {
           triggered += 1
           ok(triggered === 1, 'modal hide triggered once')
           start()
@@ -180,12 +179,12 @@ $(function () {
       $.support.transition = false
       var div = $('<div id="modal-test"><div class="contents"><div id="close" data-dismiss="modal"></div></div></div>')
       div
-        .bind('shown.bs.modal', function () {
+        .bind('shown.hd.modal', function () {
           $('#close').click()
           ok(!$('#modal-test').is(':visible'), 'modal hidden')
         })
-        .one('hidden.bs.modal', function () {
-          div.one('hidden.bs.modal', function () {
+        .one('hidden.hd.modal', function () {
+          div.one('hidden.hd.modal', function () {
             start()
           }).modal('show')
         })

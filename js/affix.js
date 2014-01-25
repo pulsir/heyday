@@ -11,8 +11,8 @@
   var Affix = function (element, options) {
     this.options = $.extend({}, Affix.DEFAULTS, options)
     this.$window = $(window)
-      .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
-      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
+      .on('scroll.hd.affix.data-api', $.proxy(this.checkPosition, this))
+      .on('click.hd.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
 
     this.$element     = $(element)
     this.affixed      =
@@ -64,7 +64,7 @@
     if (this.unpin) this.$element.css('top', '')
 
     var affixType = 'affix' + (affix ? '-' + affix : '')
-    var e         = $.Event(affixType + '.bs.affix')
+    var e         = $.Event(affixType + '.hd.affix')
 
     this.$element.trigger(e)
 
@@ -92,10 +92,10 @@
   $.fn.affix = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.affix')
+      var data    = $this.data('hd.affix')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
+      if (!data) $this.data('hd.affix', (data = new Affix(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }

@@ -11,7 +11,7 @@
   var backdrop = '.dropdown-backdrop'
   var toggle   = '[data-toggle=dropdown]'
   var Dropdown = function (element) {
-    $(element).on('click.bs.dropdown', this.toggle)
+    $(element).on('click.hd.dropdown', this.toggle)
   }
 
   Dropdown.prototype.toggle = function (e) {
@@ -30,13 +30,14 @@
         $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       }
 
-      $parent.trigger(e = $.Event('show.bs.dropdown'))
+      var relatedTarget = { relatedTarget: this }
+      $parent.trigger(e = $.Event('show.hd.dropdown', relatedTarget))
 
       if (e.isDefaultPrevented()) return
 
       $parent
         .toggleClass('open')
-        .trigger('shown.bs.dropdown')
+        .trigger('shown.hd.dropdown', relatedTarget)
 
       $this.focus()
     }
@@ -62,7 +63,8 @@
       return $this.click()
     }
 
-    var $items = $('[role=menu] li:not(.divider):visible a', $parent)
+    var desc = ' li:not(.divider):visible a'
+    var $items = $parent.find('[role=menu]' + desc + ', [role=listbox]' + desc)
 
     if (!$items.length) return
 
@@ -75,14 +77,15 @@
     $items.eq(index).focus()
   }
 
-  function clearMenus() {
+  function clearMenus(e) {
     $(backdrop).remove()
-    $(toggle).each(function (e) {
+    $(toggle).each(function () {
       var $parent = getParent($(this))
+      var relatedTarget = { relatedTarget: this }
       if (!$parent.hasClass('open')) return
-      $parent.trigger(e = $.Event('hide.bs.dropdown'))
+      $parent.trigger(e = $.Event('hide.hd.dropdown', relatedTarget))
       if (e.isDefaultPrevented()) return
-      $parent.removeClass('open').trigger('hidden.bs.dropdown')
+      $parent.removeClass('open').trigger('hidden.hd.dropdown', relatedTarget)
     })
   }
 
@@ -91,7 +94,7 @@
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '')
     }
 
     var $parent = selector && $(selector)
@@ -108,9 +111,9 @@
   $.fn.dropdown = function (option) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.dropdown')
+      var data  = $this.data('hd.dropdown')
 
-      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
+      if (!data) $this.data('hd.dropdown', (data = new Dropdown(this)))
       if (typeof option == 'string') data[option].call($this)
     })
   }
@@ -131,9 +134,9 @@
   // ===================================
 
   $(document)
-    .on('click.bs.dropdown.data-api', clearMenus)
-    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
-    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu]', Dropdown.prototype.keydown)
+    .on('click.hd.dropdown.data-api', clearMenus)
+    .on('click.hd.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+    .on('click.hd.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+    .on('keydown.hd.dropdown.data-api', toggle + ', [role=menu], [role=listbox]', Dropdown.prototype.keydown)
 
 }(jQuery);

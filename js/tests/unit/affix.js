@@ -18,7 +18,7 @@ $(function () {
 
       test('should exit early if element is not visible', function () {
         var $affix = $('<div style="display: none"></div>').affix()
-        $affix.data('bs.affix').checkPosition()
+        $affix.data('hd.affix').checkPosition()
         ok(!$affix.hasClass('affix'), 'affix class was not added')
       })
 
@@ -33,9 +33,9 @@ $(function () {
         })
 
         $('#affixTarget')
-          .on('affix.bs.affix', function (e) {
+          .on('affix.hd.affix', function (e) {
             ok(true, 'affix event triggered')
-          }).on('affixed.bs.affix', function (e) {
+          }).on('affixed.hd.affix', function (e) {
             ok(true,'affixed event triggered')
             $('#affixTarget').remove()
             $('#affixAfter').remove()
