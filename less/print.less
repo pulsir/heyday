@@ -1,14 +1,15 @@
 //
-// Basic print styles
+// Print styles
 //
 
-// Credit: H5BP
-
 @media print {
+  // Base
+  // ----
 
+  // Source: H5BP
   * {
     text-shadow: none !important;
-    color: #000 !important; // Black prints faster: h5bp.com/s
+    color: #000 !important; // Black prints faster: http://h5bp.com/s
     background: transparent !important;
     box-shadow: none !important;
   }
@@ -26,7 +27,7 @@
     content: " (" attr(title) ")";
   }
 
-  // Don't show links for images, or javascript/internal links
+  // Don't show links for images, or JavaScript/internal links
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
@@ -67,28 +68,33 @@
     page-break-after: avoid;
   }
 
-  // Chrome (OSX) fix for https://github.com/twbs/bootstrap/issues/11245
+  // Chrome (OS X) fix for https://github.com/twbs/bootstrap/issues/11245
   // Once fixed, we can just straight up remove this.
   select {
     background: #fff !important;
   }
 
-  // Bootstrap components
+  // Heyday styles
+  // -------------
+
   .navbar {
     display: none;
   }
+
   .table {
     td,
     th {
       background-color: #fff !important;
     }
   }
+
   .btn,
   .dropup > .btn {
     > .caret {
       border-top-color: #000 !important;
     }
   }
+
   .label {
     border: 1px solid #000;
   }
@@ -96,11 +102,11 @@
   .table {
     border-collapse: collapse !important;
   }
+
   .table-bordered {
     th,
     td {
       border: 1px solid #ddd !important;
     }
   }
-
 }

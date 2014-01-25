@@ -1,13 +1,13 @@
 //
 // Button groups
-// --------------------------------------------------
+//
 
 // Make the div behave like a button
 .btn-group,
 .btn-group-vertical {
   position: relative;
   display: inline-block;
-  vertical-align: middle; // match .btn alignment given font-size hack above
+  vertical-align: middle; // Match `.btn` alignment given `font-size` hack above
   > .btn {
     position: relative;
     float: left;
@@ -35,7 +35,7 @@
   }
 }
 
-// Optional: Group multiple button groups together for a toolbar
+// Group multiple button groups together for a toolbar
 .btn-toolbar {
   margin-left: -5px; // Offset the first child's margin
   &:extend(.clearfix all);
@@ -55,20 +55,23 @@
   border-radius: 0;
 }
 
-// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+// Set corners individual because sometimes a single button can be in a
+// `.btn-group` and we need `:first-child and `:last-child` to both match
 .btn-group > .btn:first-child {
   margin-left: 0;
   &:not(:last-child):not(.dropdown-toggle) {
     .border-right-radius(0);
   }
 }
-// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+// Need .dropdown-toggle since `:last-child` doesn't apply given a
+// `.dropdown-menu` immediately after it
 .btn-group > .btn:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   .border-left-radius(0);
 }
 
-// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
+// Custom edits for including `btn-group`s within `btn-group`s (useful for
+// including dropdown buttons within a `btn-group`)
 .btn-group > .btn-group {
   float: left;
 }
@@ -91,11 +94,9 @@
   outline: 0;
 }
 
-
 // Sizing
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
-
 .btn-group-xs > .btn { .btn-xs(); }
 .btn-group-sm > .btn { .btn-sm(); }
 .btn-group-lg > .btn { .btn-lg(); }
@@ -125,7 +126,6 @@
   }
 }
 
-
 // Reposition the caret
 .btn .caret {
   margin-left: 0;
@@ -139,7 +139,6 @@
 .dropup .btn-lg .caret {
   border-width: 0 @caret-width-lg @caret-width-lg;
 }
-
 
 // Vertical button groups
 // ----------------------
@@ -197,8 +196,6 @@
   .border-top-radius(0);
 }
 
-
-
 // Justified button groups
 // ----------------------
 
@@ -217,7 +214,6 @@
     width: 100%;
   }
 }
-
 
 // Checkbox and radio options
 [data-toggle="buttons"] > .btn > input[type="radio"],

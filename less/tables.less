@@ -2,16 +2,18 @@
 // Tables
 //
 
+// Base styles
+// -----------
+
 table {
   max-width: 100%;
   background-color: @table-bg;
 }
 
-// Baseline styles
-
 .table {
   width: 100%;
   margin-bottom: @line-height-computed;
+
   // Cells
   > thead,
   > tbody,
@@ -26,11 +28,13 @@ table {
       }
     }
   }
+
   // Bottom align for column headings
   > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 2px solid @table-border-color;
   }
+
   // Remove top border from thead by default
   > caption + thead,
   > colgroup + thead,
@@ -42,6 +46,7 @@ table {
       }
     }
   }
+
   // Account for multiple tbody instances
   > tbody + tbody {
     border-top: 2px solid @table-border-color;
@@ -54,7 +59,8 @@ table {
 }
 
 
-// Condensed table w/ half padding
+// Condensed table
+// ---------------
 
 .table-sm {
   > thead,
@@ -71,9 +77,9 @@ table {
 
 
 // Bordered version
-//
-// Add borders all around the table and between all the columns.
+// ----------------
 
+// Add borders all around the table and between all the columns.
 .table-bordered {
   border: 1px solid @table-border-color;
   > thead,
@@ -94,11 +100,10 @@ table {
   }
 }
 
-
 // Zebra-striping
-//
-// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+// --------------
 
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
 .table-striped {
   > tbody > tr:nth-child(odd) {
     > td,
@@ -108,9 +113,8 @@ table {
   }
 }
 
-
 // Hover effect
-//
+// ------------
 // Placed here since it has to come after the potential zebra striping
 
 .table-hover {
@@ -124,9 +128,9 @@ table {
 
 
 // Table cell sizing
-//
-// Reset default table behavior
+// -----------------
 
+// Reset default table behavior
 table col[class*="col-"] {
   position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
   float: none;
@@ -143,9 +147,8 @@ table {
   }
 }
 
-
 // Table backgrounds
-//
+// -----------------
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
@@ -158,7 +161,8 @@ table {
 
 
 // Responsive tables
-//
+// -----------------
+
 // Wrap your tables in `.table-responsive` and we'll make them mobile friendly
 // by enabling horizontal scrolling. Only applies <768px. Everything above that
 // will display normally.
@@ -222,7 +226,6 @@ table {
           }
         }
       }
-
     }
   }
 }

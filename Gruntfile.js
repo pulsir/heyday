@@ -80,7 +80,7 @@ module.exports = function (grunt) {
     },
 
     csscomb: {
-      sort: {
+      dist: {
         options: {
           config: 'less/.csscomb.json'
         },

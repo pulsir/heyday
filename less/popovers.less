@@ -1,7 +1,6 @@
 //
 // Popovers
-// --------------------------------------------------
-
+//
 
 .popover {
   position: absolute;
@@ -45,8 +44,7 @@
 
 // Arrows
 //
-// .arrow is outer, .arrow:after is inner
-
+// `.arrow` is outer, `.arrow:after` is inner
 .popover .arrow {
   &,
   &:after {
@@ -81,6 +79,7 @@
       border-top-color: @popover-arrow-color;
     }
   }
+
   &.right .arrow {
     top: 50%;
     left: -@popover-arrow-outer-width;
@@ -95,6 +94,7 @@
       border-right-color: @popover-arrow-color;
     }
   }
+
   &.bottom .arrow {
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
@@ -124,5 +124,4 @@
       bottom: -@popover-arrow-width;
     }
   }
-
 }

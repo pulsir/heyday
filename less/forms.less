@@ -2,6 +2,8 @@
 // Forms
 //
 
+// Normalization
+// -------------
 
 // Normalize non-controls
 //
@@ -19,7 +21,6 @@ label {
   margin-bottom: 5px;
   font-weight: bold;
 }
-
 
 // Normalize form controls
 
@@ -71,26 +72,27 @@ output {
 
 
 // Common form controls
-//
+// --------------------
+
 // Shared size and type resets for form controls. Apply `.form-control` to any
 // of the following form controls:
 //
-// select
-// textarea
-// input[type="text"]
-// input[type="password"]
-// input[type="datetime"]
-// input[type="datetime-local"]
-// input[type="date"]
-// input[type="month"]
-// input[type="time"]
-// input[type="week"]
-// input[type="number"]
-// input[type="email"]
-// input[type="url"]
-// input[type="search"]
-// input[type="tel"]
-// input[type="color"]
+// `select`
+// `textarea`
+// `input[type="text"]`
+// `input[type="password"]`
+// `input[type="datetime"]`
+// `input[type="datetime-local"]`
+// `input[type="date"]`
+// `input[type="month"]`
+// `input[type="time"]`
+// `input[type="week"]`
+// `input[type="number"]`
+// `input[type="email"]`
+// `input[type="url"]`
+// `input[type="search"]`
+// `input[type="tel"]`
+// `input[type="color"]`
 
 .form-control {
   display: block;
@@ -135,26 +137,25 @@ output {
 
 // Special styles for iOS date input
 //
-// In Mobile Safari, date inputs require a pixel line-height that matches the
+// In mobile Safari, date inputs require a pixel line-height that matches the
 // given height of the input.
 input[type="date"] {
   line-height: @input-height-base;
 }
 
 // Form groups
-//
+// -----------
+
 // Designed to help with the organization and spacing of vertical forms. For
 // horizontal forms, use the predefined grid classes.
-
 .form-group {
   margin-bottom: 15px;
 }
 
-
 // Checkboxes and radios
-//
-// Indent the labels to position radios/checkboxes as hanging controls.
+// ---------------------
 
+// Indent the labels to position radios/checkboxes as hanging controls.
 .radio,
 .checkbox {
   display: block;
@@ -215,12 +216,11 @@ input[type="checkbox"],
   }
 }
 
-
 // Form control sizing
-//
+// -------------------
+
 // Build on `.form-control` with modifier classes to decrease or increase the
 // height and font-size of form controls.
-
 .input-sm {
   .input-size(@input-height-sm; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-sm; @border-radius-sm);
 }
@@ -229,9 +229,9 @@ input[type="checkbox"],
   .input-size(@input-height-lg; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-lg; @border-radius-lg);
 }
 
-
 // Form control feedback states
 // ----------------------------
+
 // Apply contextual and semantic states to individual form controls
 
 .has-warning {
@@ -264,7 +264,8 @@ input[type="checkbox"],
 }
 
 // Inline forms
-//
+// ------------
+
 // Make forms appear inline(-block) by adding the `.form-inline` class. Inline
 // forms begin stacked on extra small (mobile) devices and then go inline when
 // viewports reach <768px.
@@ -316,9 +317,9 @@ input[type="checkbox"],
   }
 }
 
-
 // Horizontal forms
-//
+// ----------------
+
 // Horizontal forms are built on grid classes and allow you to create forms with
 // labels on the left and inputs on the right.
 .form-horizontal {

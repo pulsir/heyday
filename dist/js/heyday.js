@@ -10,8 +10,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: transition.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
   // ============================================================
@@ -20,10 +20,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     var el = document.createElement('bootstrap')
 
     var transEndEventNames = {
-      'WebkitTransition' : 'webkitTransitionEnd',
-      'MozTransition'    : 'transitionend',
-      'OTransition'      : 'oTransitionEnd otransitionend',
-      'transition'       : 'transitionend'
+      'WebkitTransition' :  'webkitTransitionEnd',
+      'MozTransition':      'transitionend',
+      'OTransition':        'oTransitionEnd otransitionend',
+      'transition':         'transitionend'
     }
 
     for (var name in transEndEventNames) {
@@ -54,8 +54,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: alert.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // ALERT CLASS DEFINITION
   // ======================
@@ -138,8 +138,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: button.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // BUTTON PUBLIC CLASS DEFINITION
   // ==============================
@@ -235,16 +235,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
 }(jQuery);
 
-/* ========================================================================
- * Bootstrap: carousel.js v1.0.0
- * http://getbootstrap.com/javascript/#carousel
- * ========================================================================
- * Copyright 2013 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+/*
+ * Heyday: carousel.js v1.0.0
+ */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // CAROUSEL CLASS DEFINITION
   // =========================
@@ -444,8 +440,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: collapse.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // COLLAPSE PUBLIC CLASS DEFINITION
   // ================================
@@ -609,8 +605,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: dropdown.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // DROPDOWN CLASS DEFINITION
   // =========================
@@ -749,8 +745,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: modal.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // MODAL CLASS DEFINITION
   // ======================
@@ -980,8 +976,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: tooltip.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // TOOLTIP PUBLIC CLASS DEFINITION
   // ===============================
@@ -1372,8 +1368,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: popover.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // POPOVER PUBLIC CLASS DEFINITION
   // ===============================
@@ -1475,8 +1471,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: scrollspy.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // SCROLLSPY CLASS DEFINITION
   // ==========================
@@ -1619,8 +1615,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: tab.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // TAB CLASS DEFINITION
   // ====================
@@ -1740,8 +1736,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
  * Heyday: affix.js v1.0.0
  */
 
-
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // AFFIX CLASS DEFINITION
   // ======================

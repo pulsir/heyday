@@ -1,7 +1,6 @@
 //
-// Dropdown menus
-// --------------------------------------------------
-
+// Dropdown
+//
 
 // Dropdown arrow/caret
 .caret {
@@ -15,7 +14,7 @@
   border-left:  @caret-width-base solid transparent;
 }
 
-// The dropdown wrapper (div)
+// Dropdown wrapper
 .dropdown {
   position: relative;
 }
@@ -35,7 +34,7 @@
   float: left;
   min-width: 160px;
   padding: 5px 0;
-  margin: 2px 0 0; // override default ul
+  margin: 2px 0 0; // override default `ul` styles
   list-style: none;
   font-size: @font-size-base;
   background-color: @dropdown-bg;
@@ -44,15 +43,7 @@
   .box-shadow(0 6px 12px rgba(0,0,0,.175));
   background-clip: padding-box;
 
-  // Aligns the dropdown menu to right
-  //
-  // Deprecated as of 3.1 in favor of `.dropdown-menu-[dir]`
-  &.pull-right {
-    right: 0;
-    left: auto;
-  }
-
-  // Dividers (basically an hr) within the dropdown
+  // Dividers (basically an `hr`) within the dropdown
   .divider {
     .nav-divider(@dropdown-divider-bg);
   }
@@ -69,7 +60,7 @@
   }
 }
 
-// Hover/Focus state
+// Hover/focus state
 .dropdown-menu > li > a {
   &:hover,
   &:focus {
@@ -94,7 +85,6 @@
 // Disabled state
 //
 // Gray out text and ensure the hover/focus state remains gray
-
 .dropdown-menu > .disabled > a {
   &,
   &:hover,
@@ -133,6 +123,7 @@
   left: auto; // Reset the default from `.dropdown-menu`
   right: 0;
 }
+
 // With v3, we enabled auto-flipping if you have a dropdown within a right
 // aligned nav component. To enable the undoing of that, we provide an override
 // to restore the default dropdown menu alignment.
@@ -171,9 +162,8 @@
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
 //
-// Just add .dropup after the standard .dropdown class and you're set, bro.
+// Just add `.dropup` after the standard `.dropdown` class and you're set.
 // TODO: abstract this so that the navbar fixed styles are not placed here?
-
 .dropup,
 .navbar-fixed-bottom .dropdown {
   // Reverse the caret
@@ -182,6 +172,7 @@
     border-bottom: @caret-width-base solid;
     content: "";
   }
+
   // Different positioning for bottom up menu
   .dropdown-menu {
     top: auto;
@@ -194,7 +185,6 @@
 // Component alignment
 //
 // Reiterate per navbar.less and the modified component alignment there.
-
 @media (min-width: @float-breakpoint) {
   .navbar-right {
     .dropdown-menu {

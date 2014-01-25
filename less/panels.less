@@ -1,7 +1,6 @@
 //
 // Panels
-// --------------------------------------------------
-
+//
 
 // Base class
 .panel {
@@ -18,12 +17,10 @@
   &:extend(.clearfix all);
 }
 
-
 // List groups in panels
 //
 // By default, space out list group content from panel headings to account for
 // any kind of custom content between the two.
-
 .panel {
   > .list-group {
     margin-bottom: 0;
@@ -49,12 +46,10 @@
   }
 }
 
-
 // Tables in panels
 //
 // Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
 // watch it go full width.
-
 .panel {
   > .table,
   > .table-responsive > .table {
@@ -111,7 +106,6 @@
   }
 }
 
-
 // Optional heading
 .panel-heading {
   padding: 10px 15px;
@@ -143,12 +137,10 @@
   .border-bottom-radius((@panel-border-radius - 1));
 }
 
-
 // Collapsable panels (aka, accordion)
 //
 // Wrap a series of panels in `.panel-group` to turn them into an accordion with
 // the help of our collapse JavaScript plugin.
-
 .panel-group {
   // Tighten up margin so it's only between panels
   .panel {
@@ -159,7 +151,6 @@
       margin-top: 5px;
     }
   }
-
   .panel-heading {
     border-bottom: 0;
     + .panel-collapse .panel-body {
@@ -173,7 +164,6 @@
     }
   }
 }
-
 
 // Contextual variations
 .panel-default {
