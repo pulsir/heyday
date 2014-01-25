@@ -230,9 +230,6 @@ th {
   img {
     max-width: 100% !important;
   }
-  @page {
-    margin: 2cm .5cm;
-  }
   p,
   h2,
   h3 {
@@ -267,6 +264,9 @@ th {
   .table-bordered td {
     border: 1px solid #ddd !important;
   }
+}
+@page {
+  margin: 2cm .5cm;
 }
 *,
 *:before,
@@ -1899,7 +1899,6 @@ textarea.input-lg {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 0;
@@ -3612,7 +3611,6 @@ a.thumbnail.active {
 .media,
 .media-body {
   overflow: hidden;
-  zoom: 1;
 }
 .media,
 .media .media {
@@ -3823,28 +3821,19 @@ a.list-group-item-danger.active:focus {
 .panel > .table > tbody:last-child > tr:last-child td:first-child,
 .panel > .table-responsive > .table > tbody:last-child > tr:last-child td:first-child,
 .panel > .table > tfoot:last-child > tr:last-child td:first-child,
-.panel > .table-responsive > .table > tfoot:last-child > tr:last-child td:first-child,
-.panel > .table > tbody:last-child > tr:last-child th:first-child,
-.panel > .table-responsive > .table > tbody:last-child > tr:last-child th:first-child,
-.panel > .table > tfoot:last-child > tr:last-child th:first-child,
-.panel > .table-responsive > .table > tfoot:last-child > tr:last-child th:first-child {
-  border-bottom-left-radius: -1;
+.panel > .table-responsive > .table > tfoot:last-child > tr:last-child td:first-child {
+  border-bottom-left-radius: 0;
 }
 .panel > .table > tbody:last-child > tr:last-child td:last-child,
 .panel > .table-responsive > .table > tbody:last-child > tr:last-child td:last-child,
 .panel > .table > tfoot:last-child > tr:last-child td:last-child,
-.panel > .table-responsive > .table > tfoot:last-child > tr:last-child td:last-child,
-.panel > .table > tbody:last-child > tr:last-child th:last-child,
-.panel > .table-responsive > .table > tbody:last-child > tr:last-child th:last-child,
-.panel > .table > tfoot:last-child > tr:last-child th:last-child,
-.panel > .table-responsive > .table > tfoot:last-child > tr:last-child th:last-child {
-  border-bottom-right-radius: -1;
+.panel > .table-responsive > .table > tfoot:last-child > tr:last-child td:last-child {
+  border-bottom-right-radius: 0;
 }
 .panel > .panel-body + .table,
 .panel > .panel-body + .table-responsive {
   border-top: 1px solid #ddd;
 }
-.panel > .table > tbody:first-child th,
 .panel > .table > tbody:first-child td {
   border-top: 0;
 }
@@ -3854,12 +3843,6 @@ a.list-group-item-danger.active:focus {
 }
 .panel > .table-bordered > thead > tr > th:first-child,
 .panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
-.panel > .table-bordered > tbody > tr > th:first-child,
-.panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
-.panel > .table-bordered > tfoot > tr > th:first-child,
-.panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
-.panel > .table-bordered > thead > tr > td:first-child,
-.panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
 .panel > .table-bordered > tbody > tr > td:first-child,
 .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
 .panel > .table-bordered > tfoot > tr > td:first-child,
@@ -3868,12 +3851,6 @@ a.list-group-item-danger.active:focus {
 }
 .panel > .table-bordered > thead > tr > th:last-child,
 .panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
-.panel > .table-bordered > tbody > tr > th:last-child,
-.panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
-.panel > .table-bordered > tfoot > tr > th:last-child,
-.panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
-.panel > .table-bordered > thead > tr > td:last-child,
-.panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
 .panel > .table-bordered > tbody > tr > td:last-child,
 .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
 .panel > .table-bordered > tfoot > tr > td:last-child,
@@ -3882,12 +3859,6 @@ a.list-group-item-danger.active:focus {
 }
 .panel > .table-bordered > thead > tr:last-child > th,
 .panel > .table-responsive > .table-bordered > thead > tr:last-child > th,
-.panel > .table-bordered > tbody > tr:last-child > th,
-.panel > .table-responsive > .table-bordered > tbody > tr:last-child > th,
-.panel > .table-bordered > tfoot > tr:last-child > th,
-.panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th,
-.panel > .table-bordered > thead > tr:last-child > td,
-.panel > .table-responsive > .table-bordered > thead > tr:last-child > td,
 .panel > .table-bordered > tbody > tr:last-child > td,
 .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
 .panel > .table-bordered > tfoot > tr:last-child > td,
@@ -3901,8 +3872,8 @@ a.list-group-item-danger.active:focus {
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
-  border-top-left-radius: -1;
-  border-top-right-radius: -1;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 .panel-heading > .dropdown .dropdown-toggle {
   color: inherit;
@@ -3920,8 +3891,8 @@ a.list-group-item-danger.active:focus {
   padding: 10px 15px;
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
-  border-bottom-right-radius: -1;
-  border-bottom-left-radius: -1;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .panel-group .panel {
   margin-bottom: 0;
@@ -4238,12 +4209,11 @@ button.close {
 }
 .modal.fade .modal-dialog {
   -webkit-transition: -webkit-transform .3s ease-out;
+      -ms-transition:     -ms-transform .3s ease-out;
           transition:         transform .3s ease-out;
   -webkit-transform: translate(0, -25%);
       -ms-transform: translate(0, -25%);
           transform: translate(0, -25%);
-
-      -ms-transition:     -ms-transform .3s ease-out;
 }
 .modal.in .modal-dialog {
   -webkit-transform: translate(0, 0);
@@ -4652,7 +4622,6 @@ button.close {
   width: 10px;
   height: 10px;
   margin: 1px;
-  text-indent: -999px;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #fff;
@@ -4761,13 +4730,6 @@ button.close {
 .hidden {
   display: none !important;
   visibility: hidden;
-}
-.text-hide {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
 }
 .affix {
   position: fixed;

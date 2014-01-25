@@ -52,10 +52,6 @@
     max-width: 100% !important;
   }
 
-  @page {
-    margin: 2cm .5cm;
-  }
-
   p,
   h2,
   h3 {
@@ -109,4 +105,9 @@
       border: 1px solid #ddd !important;
     }
   }
+}
+
+// `@page` has to be out of other at rules
+@page {
+  margin: 2cm .5cm;
 }

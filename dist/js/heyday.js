@@ -17,16 +17,16 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // ============================================================
 
   function transitionEnd() {
-    var el = document.createElement('bootstrap')
-
+    var el = document.createElement('heyday')
     var transEndEventNames = {
       'WebkitTransition' :  'webkitTransitionEnd',
       'MozTransition':      'transitionend',
       'OTransition':        'oTransitionEnd otransitionend',
       'transition':         'transitionend'
     }
+    var name
 
-    for (var name in transEndEventNames) {
+    for (name in transEndEventNames) {
       if (el.style[name] !== undefined) {
         return { end: transEndEventNames[name] }
       }
@@ -45,7 +45,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $(function () {
     $.support.transition = transitionEnd()
   })
-
 }(jQuery);
 
 /*
@@ -80,14 +79,14 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       $parent = $this.hasClass('alert') ? $this : $this.parent()
     }
 
-    $parent.trigger(e = $.Event('close.bs.alert'))
+    $parent.trigger(e = $.Event('close.hd.alert'))
 
     if (e.isDefaultPrevented()) return
 
     $parent.removeClass('in')
 
     function removeElement() {
-      $parent.trigger('closed.bs.alert').remove()
+      $parent.trigger('closed.hd.alert').remove()
     }
 
     $.support.transition && $parent.hasClass('fade') ?
@@ -106,9 +105,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.alert = function (option) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.alert')
+      var data  = $this.data('hd.alert')
 
-      if (!data) $this.data('bs.alert', (data = new Alert(this)))
+      if (!data) $this.data('hd.alert', (data = new Alert(this)))
       if (typeof option == 'string') data[option].call($this)
     })
   }
@@ -128,7 +127,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // ALERT DATA-API
   // ==============
 
-  $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
+  $(document).on('click.hd.alert.data-api', dismiss, Alert.prototype.close)
 
 }(jQuery);
 
@@ -199,10 +198,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.button = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.button')
+      var data    = $this.data('hd.button')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.button', (data = new Button(this, options)))
+      if (!data) $this.data('hd.button', (data = new Button(this, options)))
 
       if (option == 'toggle') data.toggle()
       else if (option) data.setState(option)
@@ -224,7 +223,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // BUTTON DATA-API
   // ===============
 
-  $(document).on('click.bs.button.data-api', '[data-toggle^=button]', function (e) {
+  $(document).on('click.hd.button.data-api', '[data-toggle^=button]', function (e) {
     var $btn = $(e.target)
     if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
     $btn.button('toggle')
@@ -289,7 +288,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
     if (pos > (this.$items.length - 1) || pos < 0) return
 
-    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) })
+    if (this.sliding)       return this.$element.one('slid.hd.carousel', function () { that.to(pos) })
     if (activeIndex == pos) return this.pause().cycle()
 
     return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
@@ -333,7 +332,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
     if ($next.hasClass('active')) return
 
-    var e = $.Event('slide.bs.carousel', { relatedTarget: $next[0], direction: direction })
+    var e = $.Event('slide.hd.carousel', { relatedTarget: $next[0], direction: direction })
     this.$element.trigger(e)
     if (e.isDefaultPrevented()) return
 
@@ -343,7 +342,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
     if (this.$indicators.length) {
       this.$indicators.find('.active').removeClass('active')
-      this.$element.one('slid.bs.carousel', function () {
+      this.$element.one('slid.hd.carousel', function () {
         var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
         $nextIndicator && $nextIndicator.addClass('active')
       })
@@ -359,14 +358,14 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
           $next.removeClass([type, direction].join(' ')).addClass('active')
           $active.removeClass(['active', direction].join(' '))
           that.sliding = false
-          setTimeout(function () { that.$element.trigger('slid.bs.carousel') }, 0)
+          setTimeout(function () { that.$element.trigger('slid.hd.carousel') }, 0)
         })
         .emulateTransitionEnd($active.css('transition-duration').slice(0, -1) * 1000)
     } else {
       $active.removeClass('active')
       $next.addClass('active')
       this.sliding = false
-      this.$element.trigger('slid.bs.carousel')
+      this.$element.trigger('slid.hd.carousel')
     }
 
     isCycling && this.cycle()
@@ -383,11 +382,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.carousel = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.carousel')
+      var data    = $this.data('hd.carousel')
       var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
       var action  = typeof option == 'string' ? option : options.slide
 
-      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
+      if (!data) $this.data('hd.carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
       else if (action) data[action]()
       else if (options.interval) data.pause().cycle()
@@ -409,7 +408,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // CAROUSEL DATA-API
   // =================
 
-  $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+  $(document).on('click.hd.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
     var $this   = $(this), href
     var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
     var options = $.extend({}, $target.data(), $this.data())
@@ -419,7 +418,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $target.carousel(options)
 
     if (slideIndex = $this.attr('data-slide-to')) {
-      $target.data('bs.carousel').to(slideIndex)
+      $target.data('hd.carousel').to(slideIndex)
     }
 
     e.preventDefault()
@@ -465,17 +464,17 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   Collapse.prototype.show = function () {
     if (this.transitioning || this.$element.hasClass('in')) return
 
-    var startEvent = $.Event('show.bs.collapse')
+    var startEvent = $.Event('show.hd.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
     var actives = this.$parent && this.$parent.find('> .panel > .in')
 
     if (actives && actives.length) {
-      var hasData = actives.data('bs.collapse')
+      var hasData = actives.data('hd.collapse')
       if (hasData && hasData.transitioning) return
       actives.collapse('hide')
-      hasData || actives.data('bs.collapse', null)
+      hasData || actives.data('hd.collapse', null)
     }
 
     var dimension = this.dimension()
@@ -493,7 +492,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
         .addClass('in')
         [dimension]('auto')
       this.transitioning = 0
-      this.$element.trigger('shown.bs.collapse')
+      this.$element.trigger('shown.hd.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
@@ -509,7 +508,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   Collapse.prototype.hide = function () {
     if (this.transitioning || !this.$element.hasClass('in')) return
 
-    var startEvent = $.Event('hide.bs.collapse')
+    var startEvent = $.Event('hide.hd.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
@@ -529,7 +528,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     var complete = function () {
       this.transitioning = 0
       this.$element
-        .trigger('hidden.bs.collapse')
+        .trigger('hidden.hd.collapse')
         .removeClass('collapsing')
         .addClass('collapse')
     }
@@ -555,11 +554,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.collapse = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.collapse')
+      var data    = $this.data('hd.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
       if (!data && options.toggle && option == 'show') option = !option
-      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
+      if (!data) $this.data('hd.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -579,13 +578,13 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // COLLAPSE DATA-API
   // =================
 
-  $(document).on('click.bs.collapse.data-api', '[data-toggle=collapse]', function (e) {
+  $(document).on('click.hd.collapse.data-api', '[data-toggle=collapse]', function (e) {
     var $this   = $(this), href
     var target  = $this.attr('data-target')
         || e.preventDefault()
         || (href = $this.attr('href'))
     var $target = $(target)
-    var data    = $target.data('bs.collapse')
+    var data    = $target.data('hd.collapse')
     var option  = data ? 'toggle' : $this.data()
     var parent  = $this.attr('data-parent')
     var $parent = parent && $(parent)
@@ -613,7 +612,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   var backdrop = '.dropdown-backdrop'
   var toggle   = '[data-toggle=dropdown]'
   var Dropdown = function (element) {
-    $(element).on('click.bs.dropdown', this.toggle)
+    $(element).on('click.hd.dropdown', this.toggle)
   }
 
   Dropdown.prototype.toggle = function (e) {
@@ -633,13 +632,13 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       }
 
       var relatedTarget = { relatedTarget: this }
-      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+      $parent.trigger(e = $.Event('show.hd.dropdown', relatedTarget))
 
       if (e.isDefaultPrevented()) return
 
       $parent
         .toggleClass('open')
-        .trigger('shown.bs.dropdown', relatedTarget)
+        .trigger('shown.hd.dropdown', relatedTarget)
 
       $this.focus()
     }
@@ -685,9 +684,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       var $parent = getParent($(this))
       var relatedTarget = { relatedTarget: this }
       if (!$parent.hasClass('open')) return
-      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+      $parent.trigger(e = $.Event('hide.hd.dropdown', relatedTarget))
       if (e.isDefaultPrevented()) return
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
+      $parent.removeClass('open').trigger('hidden.hd.dropdown', relatedTarget)
     })
   }
 
@@ -713,9 +712,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.dropdown = function (option) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.dropdown')
+      var data  = $this.data('hd.dropdown')
 
-      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
+      if (!data) $this.data('hd.dropdown', (data = new Dropdown(this)))
       if (typeof option == 'string') data[option].call($this)
     })
   }
@@ -736,10 +735,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // ===================================
 
   $(document)
-    .on('click.bs.dropdown.data-api', clearMenus)
-    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
-    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu], [role=listbox]', Dropdown.prototype.keydown)
+    .on('click.hd.dropdown.data-api', clearMenus)
+    .on('click.hd.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+    .on('click.hd.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+    .on('keydown.hd.dropdown.data-api', toggle + ', [role=menu], [role=listbox]', Dropdown.prototype.keydown)
 
 }(jQuery);
 
@@ -774,7 +773,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   Modal.prototype.show = function (_relatedTarget) {
     var that = this
-    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
+    var e    = $.Event('show.hd.modal', { relatedTarget: _relatedTarget })
 
     this.$element.trigger(e)
 
@@ -805,7 +804,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
       that.enforceFocus()
 
-      var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
+      var e = $.Event('shown.hd.modal', { relatedTarget: _relatedTarget })
 
       transition ?
         that.$element.find('.modal-dialog') // wait for modal to slide in
@@ -820,7 +819,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   Modal.prototype.hide = function (e) {
     if (e) e.preventDefault()
 
-    e = $.Event('hide.bs.modal')
+    e = $.Event('hide.hd.modal')
 
     this.$element.trigger(e)
 
@@ -830,7 +829,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
     this.escape()
 
-    $(document).off('focusin.bs.modal')
+    $(document).off('focusin.hd.modal')
 
     this.$element
       .removeClass('in')
@@ -846,8 +845,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   Modal.prototype.enforceFocus = function () {
     $(document)
-      .off('focusin.bs.modal') // guard against infinite focus loop
-      .on('focusin.bs.modal', $.proxy(function (e) {
+      .off('focusin.hd.modal') // guard against infinite focus loop
+      .on('focusin.hd.modal', $.proxy(function (e) {
         if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
           this.$element.focus()
         }
@@ -856,11 +855,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   Modal.prototype.escape = function () {
     if (this.isShown && this.options.keyboard) {
-      this.$element.on('keyup.dismiss.bs.modal', $.proxy(function (e) {
+      this.$element.on('keyup.dismiss.hd.modal', $.proxy(function (e) {
         e.which == 27 && this.hide()
       }, this))
     } else if (!this.isShown) {
-      this.$element.off('keyup.dismiss.bs.modal')
+      this.$element.off('keyup.dismiss.hd.modal')
     }
   }
 
@@ -869,7 +868,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     this.$element.hide()
     this.backdrop(function () {
       that.removeBackdrop()
-      that.$element.trigger('hidden.bs.modal')
+      that.$element.trigger('hidden.hd.modal')
     })
   }
 
@@ -929,10 +928,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.modal = function (option, _relatedTarget) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.modal')
+      var data    = $this.data('hd.modal')
       var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
+      if (!data) $this.data('hd.modal', (data = new Modal(this, options)))
       if (typeof option == 'string') data[option](_relatedTarget)
       else if (options.show) data.show(_relatedTarget)
     })
@@ -953,7 +952,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // MODAL DATA-API
   // ==============
 
-  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
+  $(document).on('click.hd.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
     var $target = $($this.attr('data-target') || href)
@@ -969,8 +968,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   })
 
   $(document)
-    .on('show.bs.modal',  '.modal', function () { $(document.body).addClass('modal-open') })
-    .on('hidden.bs.modal', '.modal', function () { $(document.body).removeClass('modal-open') })
+    .on('show.hd.modal',  '.modal', function () { $(document.body).addClass('modal-open') })
+    .on('hidden.hd.modal', '.modal', function () { $(document.body).removeClass('modal-open') })
 
 }(jQuery);
 
@@ -1064,7 +1063,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   Tooltip.prototype.enter = function (obj) {
     var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('bs.' + this.type)
+      obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('hd.' + this.type)
 
     clearTimeout(self.timeout)
 
@@ -1079,7 +1078,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   Tooltip.prototype.leave = function (obj) {
     var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('bs.' + this.type)
+      obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data('hd.' + this.type)
 
     clearTimeout(self.timeout)
 
@@ -1093,7 +1092,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   }
 
   Tooltip.prototype.show = function () {
-    var e = $.Event('show.bs.' + this.type)
+    var e = $.Event('show.hd.' + this.type)
 
     if (this.hasContent() && this.enabled) {
       this.$element.trigger(e)
@@ -1152,7 +1151,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       this.hoverState = null
 
       var complete = function() {
-        that.$element.trigger('shown.bs.' + that.type)
+        that.$element.trigger('shown.hd.' + that.type)
       }
 
       $.support.transition && this.$tip.hasClass('fade') ?
@@ -1238,11 +1237,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   Tooltip.prototype.hide = function () {
     var that = this
     var $tip = this.tip()
-    var e    = $.Event('hide.bs.' + this.type)
+    var e    = $.Event('hide.hd.' + this.type)
 
     function complete() {
       if (that.hoverState != 'in') $tip.detach()
-      that.$element.trigger('hidden.bs.' + that.type)
+      that.$element.trigger('hidden.hd.' + that.type)
     }
 
     this.$element.trigger(e)
@@ -1328,12 +1327,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   }
 
   Tooltip.prototype.toggle = function (e) {
-    var self = e ? $(e.currentTarget)[this.type](this.getDelegateOptions()).data('bs.' + this.type) : this
+    var self = e ? $(e.currentTarget)[this.type](this.getDelegateOptions()).data('hd.' + this.type) : this
     self.tip().hasClass('in') ? self.leave(self) : self.enter(self)
   }
 
   Tooltip.prototype.destroy = function () {
-    this.hide().$element.off('.' + this.type).removeData('bs.' + this.type)
+    this.hide().$element.off('.' + this.type).removeData('hd.' + this.type)
   }
 
 
@@ -1345,10 +1344,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.tooltip = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.tooltip')
+      var data    = $this.data('hd.tooltip')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
+      if (!data) $this.data('hd.tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -1448,10 +1447,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.popover = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.popover')
+      var data    = $this.data('hd.popover')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
+      if (!data) $this.data('hd.popover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -1485,10 +1484,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
     this.$element       = $(element).is('body') ? $(window) : $(element)
     this.$body          = $('body')
-    this.$scrollElement = this.$element.on('scroll.bs.scroll-spy.data-api', process)
+    this.$scrollElement = this.$element.on('scroll.hd.scroll-spy.data-api', process)
     this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
     this.selector       = (this.options.target
-      || (href = $(element).attr('href')) 
+      || (href = $(element).attr('href'))
       || '') + ' .nav li > a'
     this.offsets        = $([])
     this.targets        = $([])
@@ -1569,7 +1568,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
         .addClass('active')
     }
 
-    active.trigger('activate.bs.scrollspy')
+    active.trigger('activate.hd.scrollspy')
   }
 
 
@@ -1581,10 +1580,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.scrollspy = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.scrollspy')
+      var data    = $this.data('hd.scrollspy')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+      if (!data) $this.data('hd.scrollspy', (data = new ScrollSpy(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -1640,7 +1639,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     if ($this.parent('li').hasClass('active')) return
 
     var previous = $ul.find('.active:last a')[0]
-    var e        = $.Event('show.bs.tab', {
+    var e        = $.Event('show.hd.tab', {
       relatedTarget: previous
     })
 
@@ -1653,7 +1652,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     this.activate($this.parent('li'), $ul)
     this.activate($target, $target.parent(), function () {
       $this.trigger({
-        type: 'shown.bs.tab',
+        type: 'shown.hd.tab',
         relatedTarget: previous
       })
     })
@@ -1705,9 +1704,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.tab = function ( option ) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.tab')
+      var data  = $this.data('hd.tab')
 
-      if (!data) $this.data('bs.tab', (data = new Tab(this)))
+      if (!data) $this.data('hd.tab', (data = new Tab(this)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -1727,7 +1726,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // TAB DATA-API
   // ============
 
-  $(document).on('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
+  $(document).on('click.hd.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
     e.preventDefault()
     $(this).tab('show')
   })
@@ -1747,8 +1746,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   var Affix = function (element, options) {
     this.options = $.extend({}, Affix.DEFAULTS, options)
     this.$window = $(window)
-      .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
-      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
+      .on('scroll.hd.affix.data-api', $.proxy(this.checkPosition, this))
+      .on('click.hd.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
 
     this.$element     = $(element)
     this.affixed      =
@@ -1800,7 +1799,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     if (this.unpin) this.$element.css('top', '')
 
     var affixType = 'affix' + (affix ? '-' + affix : '')
-    var e         = $.Event(affixType + '.bs.affix')
+    var e         = $.Event(affixType + '.hd.affix')
 
     this.$element.trigger(e)
 
@@ -1828,10 +1827,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   $.fn.affix = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.affix')
+      var data    = $this.data('hd.affix')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
+      if (!data) $this.data('hd.affix', (data = new Affix(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }

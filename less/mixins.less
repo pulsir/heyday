@@ -61,15 +61,6 @@
   white-space: nowrap;
 }
 
-// Image replacement
-.text-hide() {
-  font: ~"0/0" a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-
 // Placeholder text
 .placeholder(@color: @placeholder-color) {
   &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
@@ -78,7 +69,7 @@
 }
 
 // CSS3 PROPERTIES
-// --------------------------------------------------
+// ---------------
 
 // Single side border-radius
 .border-top-radius(@radius) {
@@ -229,8 +220,7 @@
 .user-select(@select) {
   -webkit-user-select: @select;
      -moz-user-select: @select;
-      -ms-user-select: @select; // IE10+
-          user-select: @select;
+      -ms-user-select: @select; // IE 10+
 }
 
 // Resize anything
@@ -354,21 +344,21 @@
 // Panels
 // ------
 
-.panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
-  border-color: @border;
+.panel-variant(@border-color; @heading-color; @heading-bg-color; @heading-border-color) {
+  border-color: @border-color;
 
   & > .panel-heading {
-    color: @heading-text-color;
+    color: @heading-color;
     background-color: @heading-bg-color;
-    border-color: @heading-border;
+    border-color: @heading-border-color;
 
     + .panel-collapse .panel-body {
-      border-top-color: @border;
+      border-top-color: @border-color;
     }
   }
   & > .panel-footer {
     + .panel-collapse .panel-body {
-      border-bottom-color: @border;
+      border-bottom-color: @border-color;
     }
   }
 }

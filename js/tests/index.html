@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Heyday plugin test suite</title>
 
   <!-- jQuery -->
@@ -9,12 +10,6 @@
   <!-- QUnit -->
   <link rel="stylesheet" href="vendor/qunit.css">
   <script src="vendor/qunit.js"></script>
-  <script>
-    // See https://github.com/axemclion/grunt-saucelabs#test-result-details-with-qunit
-    QUnit.done(function (results) {
-      window.global_test_results = results
-    })
-  </script>
 
   <!-- Plugin sources -->
   <script>$.support.transition = false</script>

@@ -195,6 +195,7 @@
       "opacity",
       "-ms-interpolation-mode",
       "-webkit-transition",
+      "-ms-transition",
       "transition",
       "-webkit-transition-delay",
       "transition-delay",

@@ -9,16 +9,16 @@
   // ============================================================
 
   function transitionEnd() {
-    var el = document.createElement('bootstrap')
-
+    var el = document.createElement('heyday')
     var transEndEventNames = {
       'WebkitTransition' :  'webkitTransitionEnd',
       'MozTransition':      'transitionend',
       'OTransition':        'oTransitionEnd otransitionend',
       'transition':         'transitionend'
     }
+    var name
 
-    for (var name in transEndEventNames) {
+    for (name in transEndEventNames) {
       if (el.style[name] !== undefined) {
         return { end: transEndEventNames[name] }
       }
@@ -37,5 +37,4 @@
   $(function () {
     $.support.transition = transitionEnd()
   })
-
 }(jQuery);

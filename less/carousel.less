@@ -146,7 +146,6 @@
     width:  10px;
     height: 10px;
     margin: 1px;
-    text-indent: -999px;
     border: 1px solid @carousel-indicator-border-color;
     border-radius: 10px;
     cursor: pointer;
@@ -157,8 +156,8 @@
     // `background-color`. We cannot use `filter` since that's not viewed as a
     // background color by the browser. Thus, a hack is needed.
     //
-    // For IE9, we set alpha transparency for the best results possible.
-    background-color: rgba(0,0,0,0); // IE9
+    // So we set alpha transparency for the best results possible.
+    background-color: rgba(0,0,0,0);
   }
   .active {
     margin: 0;
@@ -183,14 +182,14 @@
   color: @carousel-caption-color;
   text-align: center;
   text-shadow: @carousel-text-shadow;
-  & .btn {
+
+  .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
   }
 }
 
 // Scale up controls for tablets and up
 @media screen and (min-width: @screen-sm-min) {
-
   // Scale up the controls a smidge
   .carousel-control {
     .icon-prev,
