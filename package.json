@@ -22,6 +22,6 @@
     "grunt-csscomb": "2.0.x",
     "grunt-jscs-checker": "0.3.x",
     "grunt-sed": "0.1.x",
-    "load-grunt-tasks": "0.2.x"
+    "load-grunt-tasks": "0.3.x"
   }
 }
