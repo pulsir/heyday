@@ -4,8 +4,6 @@
  * Licensed under The :) Licence.
  */
 
-// jshint node: true
-
 module.exports = function (grunt) {
   'use strict';
 
