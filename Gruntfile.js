@@ -1,4 +1,10 @@
-/* jshint node: true */
+/*!
+ * Heyday Gruntfile (http://dev.pulsir.eu/heyday)
+ * Copyright 2014 Pulsir team
+ * Licensed under The :) Licence.
+ */
+
+// jshint node: true
 
 module.exports = function (grunt) {
   'use strict';
