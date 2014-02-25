@@ -1,5 +1,5 @@
 /*
- * Modified grunt-contrib-qunit [http://gruntjs.com/].
+ * Modified grunt-contrib-qunit (http://gruntjs.com/).
  * Licensed under the MIT License.
  */
 
