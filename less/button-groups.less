@@ -8,19 +8,22 @@
   position: relative;
   display: inline-block;
   vertical-align: middle; // Match `.btn` alignment given `font-size` hack above
+
   > .btn {
     position: relative;
     float: left;
-    // Bring the "active" button to the front
+
+    // Bring the active button to the front
     &:hover,
     &:focus,
     &:active,
     &.active {
       z-index: 2;
     }
+
+    // Remove focus outline when dropdown JS adds it after closing the menu
     &:focus {
-      // Remove focus outline when dropdown JS adds it after closing the menu
-      outline: none;
+      outline: 0;
     }
   }
 }

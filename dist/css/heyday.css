@@ -688,7 +688,7 @@ pre code {
   font-size: inherit;
   color: inherit;
   white-space: pre-wrap;
-  background-color: transparent;
+  background: transparent;
   border-radius: 0;
 }
 .pre-scrollable {
@@ -2200,7 +2200,7 @@ input[type="button"].btn-block {
 }
 .btn-group > .btn:focus,
 .btn-group-vertical > .btn:focus {
-  outline: none;
+  outline: 0;
 }
 .btn-group .btn + .btn,
 .btn-group .btn + .btn-group,
@@ -3188,6 +3188,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
   background-color: #fff;
   border: 1px solid #ddd;
 }
+.pagination > li > a:hover,
+.pagination > li > a:focus {
+  color: #2a6496;
+  background-color: #eee;
+  border-color: #ddd;
+}
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
   margin-left: 0;
@@ -3199,33 +3205,22 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.pagination > li > a:hover,
-.pagination > li > span:hover,
-.pagination > li > a:focus,
-.pagination > li > span:focus {
-  color: #2a6496;
-  background-color: #eee;
-  border-color: #ddd;
-}
 .pagination > .active > a,
-.pagination > .active > span,
 .pagination > .active > a:hover,
-.pagination > .active > span:hover,
 .pagination > .active > a:focus,
-.pagination > .active > span:focus {
+.pagination > .active > span {
   z-index: 2;
   color: #fff;
   cursor: default;
   background-color: #428bca;
   border-color: #428bca;
 }
-.pagination > .disabled > span,
-.pagination > .disabled > span:hover,
-.pagination > .disabled > span:focus,
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
-.pagination > .disabled > a:focus {
+.pagination > .disabled > a:focus,
+.pagination > .disabled > span {
   color: #999;
+  pointer-events: none;
   cursor: not-allowed;
   background-color: #fff;
   border-color: #ddd;
@@ -3286,8 +3281,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pager .next > span {
   float: right;
 }
-.pager .previous > a,
-.pager .previous > span {
+.pager .prev > a,
+.pager .prev > span {
   float: left;
 }
 .pager .disabled > a,
@@ -3392,7 +3387,7 @@ a.badge:focus {
   position: relative;
   top: -1px;
 }
-a.list-group-item.active > .badge,
+.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #428bca;
   background-color: #fff;
@@ -3413,7 +3408,6 @@ a.list-group-item.active > .badge,
 .jumbotron p {
   margin-bottom: 15px;
   font-size: 21px;
-  font-weight: 200;
 }
 .container .jumbotron {
   border-radius: 0;
@@ -4000,7 +3994,6 @@ a.list-group-item-danger.active:focus {
   border-bottom-color: #ebccd1;
 }
 .well {
-  min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
   background-color: #f5f5f5;
@@ -4011,6 +4004,9 @@ a.list-group-item-danger.active:focus {
 }
 .well blockquote {
   border-color: rgba(0, 0, 0, .15);
+}
+.well:empty {
+  display: none;
 }
 .well-sm {
   padding: 9px;
@@ -4030,7 +4026,8 @@ a.list-group-item-danger.active:focus {
   opacity: .2;
 }
 .close:hover,
-.close:focus {
+.close:focus,
+.close.active {
   color: #000;
   text-decoration: none;
   opacity: .5;
@@ -4166,10 +4163,6 @@ button.close {
   left: 0;
   z-index: 990;
 }
-.pull-right > .dropdown-menu {
-  right: 0;
-  left: auto;
-}
 .dropup .caret,
 .navbar-fixed-bottom .dropdown .caret {
   content: "";
@@ -4232,7 +4225,7 @@ button.close {
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 0;
-  outline: none;
+  outline: 0;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
@@ -4535,6 +4528,12 @@ button.close {
 .carousel-inner > .active {
   left: 0;
 }
+.carousel-inner > .active.left {
+  left: -100%;
+}
+.carousel-inner > .active.right {
+  left: 100%;
+}
 .carousel-inner > .next,
 .carousel-inner > .prev {
   position: absolute;
@@ -4550,12 +4549,6 @@ button.close {
 .carousel-inner > .next.left,
 .carousel-inner > .prev.right {
   left: 0;
-}
-.carousel-inner > .active.left {
-  left: -100%;
-}
-.carousel-inner > .active.right {
-  left: 100%;
 }
 .carousel-control {
   position: absolute;
@@ -4577,7 +4570,7 @@ button.close {
 .carousel-control:focus {
   color: #fff;
   text-decoration: none;
-  outline: none;
+  outline: 0;
   opacity: .9;
 }
 .carousel-control .icon-prev,
@@ -4586,23 +4579,19 @@ button.close {
   top: 50%;
   z-index: 5;
   display: inline-block;
-}
-.carousel-control .icon-prev {
-  left: 50%;
-}
-.carousel-control .icon-next {
-  right: 50%;
-}
-.carousel-control .icon-prev,
-.carousel-control .icon-next {
   width: 20px;
   height: 20px;
   margin-top: -10px;
   margin-left: -10px;
-  font-family: serif;
+}
+.carousel-control .icon-prev {
+  left: 50%;
 }
 .carousel-control .icon-prev:before {
   content: "\276e";
+}
+.carousel-control .icon-next {
+  right: 50%;
 }
 .carousel-control .icon-next:before {
   content: "\276f";

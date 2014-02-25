@@ -24,6 +24,13 @@
       margin-left: -1px;
     }
 
+    > a:hover,
+    > a:focus {
+      color: @pagination-hover-color;
+      background-color: @pagination-hover-bg-color;
+      border-color: @pagination-hover-border-color;
+    }
+
     &:first-child {
       > a,
       > span {
@@ -39,21 +46,11 @@
     }
   }
 
-  > li > a,
-  > li > span {
-    &:hover,
-    &:focus {
-      color: @pagination-hover-color;
-      background-color: @pagination-hover-bg-color;
-      border-color: @pagination-hover-border-color;
-    }
-  }
-
-  > .active > a,
-  > .active > span {
-    &,
-    &:hover,
-    &:focus {
+  > .active {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
       z-index: 2;
       color: @pagination-active-color;
       background-color: @pagination-active-bg-color;
@@ -63,16 +60,15 @@
   }
 
   > .disabled {
-    > span,
-    > span:hover,
-    > span:focus,
     > a,
     > a:hover,
-    > a:focus {
+    > a:focus,
+    > span {
       color: @pagination-disabled-color;
       background-color: @pagination-disabled-bg-color;
       border-color: @pagination-disabled-border-color;
       cursor: not-allowed;
+      pointer-events: none;
     }
   }
 }

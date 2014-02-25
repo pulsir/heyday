@@ -70,7 +70,6 @@ output {
   color: @input-color;
 }
 
-
 // Common form controls
 // --------------------
 
@@ -93,7 +92,6 @@ output {
 // `input[type="search"]`
 // `input[type="tel"]`
 // `input[type="color"]`
-
 .form-control {
   display: block;
   width: 100%;
@@ -115,7 +113,7 @@ output {
   // Placeholder
   //
   // Placeholder text gets special styles because when browsers invalidate entire
-  // lines if it doesn't understand a selector/
+  // lines if it doesn't understand a selector.
   .placeholder();
 
   // Disabled and read-only inputs
@@ -276,7 +274,6 @@ input[type="checkbox"],
 // Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
 
 .form-inline {
-
   // Kick in the inline
   @media (min-width: @screen-sm-min) {
     // Inline-block all the things for "inline"
@@ -333,6 +330,7 @@ input[type="checkbox"],
     margin-bottom: 0;
     padding-top: (@padding-base-vertical + 1); // Default padding plus a border
   }
+
   // Account for padding we're adding to ensure the alignment and of help text
   // and other content below items
   .radio,

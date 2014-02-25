@@ -4,7 +4,6 @@
 
 // Base class
 .well {
-  min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
   background-color: @well-bg-color;
@@ -14,6 +13,11 @@
 
   blockquote {
     border-color: rgba(0,0,0,.15);
+  }
+
+  // Empty wells collapse automatically
+  &:empty {
+    display: none;
   }
 }
 

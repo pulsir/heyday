@@ -10,7 +10,7 @@
 .list-group {
   // No need to set `list-style: none;` since `.list-group-item` is block level
   margin-bottom: 20px;
-  padding-left: 0; // reset padding for `ul` and `ol`
+  padding-left: 0; // Reset padding for `ul` and `ol`
 }
 
 // Individual list items
@@ -37,9 +37,10 @@
   // Align badges within list items
   > .badge {
     float: right;
-  }
-  > .badge + .badge {
-    margin-right: 5px;
+
+    + .badge {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -88,7 +89,6 @@ a.list-group-item {
 .list-group-item-variant(info; @state-info-bg; @state-info-text);
 .list-group-item-variant(warning; @state-warning-bg; @state-warning-text);
 .list-group-item-variant(danger; @state-danger-bg; @state-danger-text);
-
 
 // Custom content options
 //

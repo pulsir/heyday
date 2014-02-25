@@ -1,6 +1,6 @@
 $(function () {
 
-    module('tabs')
+    module('tab')
 
       test('should provide no conflict', function () {
         var tab = $.fn.tab.noConflict()

@@ -26,10 +26,19 @@
 
   > .active,
   > .next,
-  > .prev { display: block; }
+  > .prev {
+    display: block;
+  }
 
   > .active {
     left: 0;
+
+    &.left {
+      left: -100%;
+    }
+    &.right {
+      left: 100%;
+    }
   }
 
   > .next,
@@ -49,14 +58,6 @@
   > .prev.right {
     left: 0;
   }
-
-  > .active.left {
-    left: -100%;
-  }
-  > .active.right {
-    left: 100%;
-  }
-
 }
 
 // Left/right controls for nav
@@ -85,7 +86,7 @@
   // Hover/focus state
   &:hover,
   &:focus {
-    outline: none;
+    outline: 0;
     color: @carousel-control-color;
     text-decoration: none;
     opacity: .9;
@@ -98,30 +99,23 @@
     top: 50%;
     z-index: 5;
     display: inline-block;
-  }
-  .icon-prev {
-    left: 50%;
-  }
-  .icon-next {
-    right: 50%;
-  }
-  .icon-prev,
-  .icon-next {
     width: 20px;
     height: 20px;
     margin-top: -10px;
     margin-left: -10px;
-    font-family: serif;
   }
-
   .icon-prev {
+    left: 50%;
+
     &:before {
-      content: '\276e';
+      content: "\276e";
     }
   }
   .icon-next {
+    right: 50%;
+
     &:before {
-      content: '\276f';
+      content: "\276f";
     }
   }
 }
@@ -184,9 +178,12 @@
   text-shadow: @carousel-text-shadow;
 
   .btn {
-    text-shadow: none; // No shadow for button elements in carousel-caption
+    text-shadow: none; // No shadow for button elements in `.carousel-caption`
   }
 }
+
+// Media queries
+// -------------
 
 // Scale up controls for tablets and up
 @media screen and (min-width: @screen-sm-min) {
