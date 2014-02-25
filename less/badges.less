@@ -31,14 +31,13 @@
     display: none;
   }
 
-  // Quick fix for badges in buttons
+  // Position fix for badges in buttons
   .btn & {
     position: relative;
     top: -1px;
   }
 
-  // Account for counters in navs
-  .list-group-item.active > &,
+  // Account for badges in navs
   .nav-pills > .active > a > & {
     color: @badge-active-color;
     background-color: @badge-active-bg;
