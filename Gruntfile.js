@@ -68,18 +68,15 @@ module.exports = function (grunt) {
           sourceMapURL: 'heyday.css.map',
           sourceMapFilename: '<%= heyday.cssMap %>'
         },
-        files: {
-          '<%= heyday.css %>': '<%= heyday.less %>'
-        }
+        src: '<%= heyday.less %>',
+        dest: '<%= heyday.css %>'
       },
       distMin: {
         options: {
-          cleancss: true,
-          report: 'min'
+          cleancss: true
         },
-        files: {
-          '<%= heyday.cssMin %>': '<%= heyday.css %>'
-        }
+        src: '<%= heyday.css %>',
+        dest: '<%= heyday.cssMin %>'
       }
     },
 
@@ -88,9 +85,8 @@ module.exports = function (grunt) {
         options: {
           config: 'less/.csscomb.json'
         },
-        files: {
-          '<%= heyday.css %>': '<%= heyday.css %>'
-        }
+        src: '<%= heyday.css %>',
+        dest: '<%= heyday.css %>'
       }
     },
 
@@ -100,41 +96,26 @@ module.exports = function (grunt) {
           position: 'top',
           banner: '<%= banner %>'
         },
-        files: {
-          src: [
-            '<%= heyday.css %>',
-            '<%= heyday.cssMin %>'
-          ]
-        }
-      }
-    },
-
-    csslint: {
-      options: {
-        csslintrc: 'less/.csslintrc',
-      },
-      dist: {
-        src: '<%= heyday.css %>'
+        src: 'dist/css/*.css'
       }
     },
 
     concat: {
-      options: {
-        banner: '<%= banner %>\n<%= jqueryCheck %>',
-        stripBanners: false
-      },
       dist: {
+        options: {
+          banner: '<%= banner %>\n<%= jqueryCheck %>',
+          stripBanners: false
+        },
         src: '<%= heyday.js.src %>',
         dest: '<%= heyday.js.dist %>'
       }
     },
 
     uglify: {
-      options: {
-        banner: '<%= banner %>\n',
-        report: 'min'
-      },
       dist: {
+        options: {
+          banner: '<%= banner %>\n'
+        },
         src: '<%= heyday.js.dist %>',
         dest: '<%= heyday.js.distMin %>'
       }
@@ -145,6 +126,9 @@ module.exports = function (grunt) {
         jshintrc: 'js/.jshintrc'
       },
       gruntfile: {
+        options: {
+          asi: false
+        },
         src: 'Gruntfile.js'
       },
       src: {
@@ -189,7 +173,7 @@ module.exports = function (grunt) {
     },
 
     sed: {
-      version: {
+      versions: {
         pattern: (function () {
           var old = grunt.option('old')
           return old ? RegExp.quote(old) : old
@@ -213,15 +197,15 @@ module.exports = function (grunt) {
   grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
 
   // Test task
-  grunt.registerTask('test', ['csslint', 'jshint', 'jscs', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'jscs', 'qunit']);
 
   // Default task
   grunt.registerTask('default', ['dist', 'test']);
 
   // Version updating task
   //
-  //   $ grunt change-version --old=A.B.C --new=X.Y.Z
+  //   $ grunt change-versions --old=A.B.C --new=X.Y.Z
   //
   // Changes should always be manually reviewed!
-  grunt.registerTask('change-version', 'sed:version');
+  grunt.registerTask('change-versions', 'sed:versions');
 };
