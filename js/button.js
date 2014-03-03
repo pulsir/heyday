@@ -56,7 +56,6 @@
     if (changed) this.$element.toggleClass('active')
   }
 
-
   // BUTTON PLUGIN DEFINITION
   // ========================
 
@@ -77,7 +76,6 @@
 
   $.fn.button.Constructor = Button
 
-
   // BUTTON NO CONFLICT
   // ==================
 
@@ -85,7 +83,6 @@
     $.fn.button = old
     return this
   }
-
 
   // BUTTON DATA-API
   // ===============

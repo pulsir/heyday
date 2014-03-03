@@ -35,10 +35,15 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
-    var called = false, $el = this
+    var called = false
+    var $el = this
+    var callback = function () {
+      if (!called) $($el).trigger($.support.transition.end)
+    }
+
     $(this).one($.support.transition.end, function () { called = true })
-    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
     setTimeout(callback, duration)
+
     return this
   }
 
@@ -96,7 +101,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       removeElement()
   }
 
-
   // ALERT PLUGIN DEFINITION
   // =======================
 
@@ -114,7 +118,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   $.fn.alert.Constructor = Alert
 
-
   // ALERT NO CONFLICT
   // =================
 
@@ -122,7 +125,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $.fn.alert = old
     return this
   }
-
 
   // ALERT DATA-API
   // ==============
@@ -189,7 +191,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     if (changed) this.$element.toggleClass('active')
   }
 
-
   // BUTTON PLUGIN DEFINITION
   // ========================
 
@@ -210,7 +211,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   $.fn.button.Constructor = Button
 
-
   // BUTTON NO CONFLICT
   // ==================
 
@@ -218,7 +218,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $.fn.button = old
     return this
   }
-
 
   // BUTTON DATA-API
   // ===============
@@ -344,7 +343,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     this[this.$element.hasClass('in') ? 'hide' : 'show']()
   }
 
-
   // COLLAPSE PLUGIN DEFINITION
   // ==========================
 
@@ -364,7 +362,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   $.fn.collapse.Constructor = Collapse
 
-
   // COLLAPSE NO CONFLICT
   // ====================
 
@@ -373,12 +370,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     return this
   }
 
-
   // COLLAPSE DATA-API
   // =================
 
   $(document).on('click.hd.collapse.data-api', '[data-toggle=collapse]', function (e) {
-    var $this   = $(this), href
+    var $this   = $(this)
     var target  = $this.attr('data-target')
         || e.preventDefault()
         || (href = $this.attr('href'))
@@ -387,6 +383,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     var option  = data ? 'toggle' : $this.data()
     var parent  = $this.attr('data-parent')
     var $parent = parent && $(parent)
+    var href
 
     if (!data || !data.transitioning) {
       if ($parent) $parent.find('[data-toggle=collapse][data-parent="' + parent + '"]').not($this).addClass('collapsed')
@@ -502,7 +499,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     return $parent && $parent.length ? $parent : $this.parent()
   }
 
-
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
 
@@ -520,7 +516,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   $.fn.dropdown.Constructor = Dropdown
 
-
   // DROPDOWN NO CONFLICT
   // ====================
 
@@ -528,7 +523,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $.fn.dropdown = old
     return this
   }
-
 
   // APPLY TO STANDARD DROPDOWN ELEMENTS
   // ===================================
@@ -552,10 +546,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // ======================
 
   var Modal = function (element, options) {
-    this.options   = options
-    this.$element  = $(element)
-    this.$backdrop =
-    this.isShown   = null
+    this.options    = options
+    this.$element   = $(element)
+    this.$backdrop  =
+    this.isShown    = null
 
     if (this.options.remote) this.$element.find('.modal-content').load(this.options.remote)
   }
@@ -571,8 +565,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   }
 
   Modal.prototype.show = function (_relatedTarget) {
-    var that = this
-    var e    = $.Event('show.hd.modal', { relatedTarget: _relatedTarget })
+    var _this = this
+    var e     = $.Event('show.hd.modal', { relatedTarget: _relatedTarget })
 
     this.$element.trigger(e)
 
@@ -585,33 +579,33 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     this.$element.on('click.dismiss.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
     this.backdrop(function () {
-      var transition = $.support.transition && that.$element.hasClass('fade')
+      var transition = $.support.transition && _this.$element.hasClass('fade')
 
-      if (!that.$element.parent().length) {
-        that.$element.appendTo(document.body) // don't move modals dom position
+      if (!_this.$element.parent().length) {
+        _this.$element.appendTo(document.body) // don't move modals dom position
       }
 
-      that.$element.show()
+      _this.$element.show()
 
       if (transition) {
-        that.$element[0].offsetWidth // force reflow
+        _this.$element[0].offsetWidth // force reflow
       }
 
-      that.$element
+      _this.$element
         .addClass('in')
         .attr('aria-hidden', false)
 
-      that.enforceFocus()
+      _this.enforceFocus()
 
       var e = $.Event('shown.hd.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-        that.$element.find('.modal-dialog') // wait for modal to slide in
+        _this.$element.find('.modal-dialog') // wait for modal to slide in
           .one($.support.transition.end, function () {
-            that.$element.focus().trigger(e)
+            _this.$element.focus().trigger(e)
           })
           .emulateTransitionEnd(300) :
-        that.$element.focus().trigger(e)
+        _this.$element.focus().trigger(e)
     })
   }
 
@@ -657,17 +651,18 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       this.$element.on('keyup.dismiss.hd.modal', $.proxy(function (e) {
         e.which == 27 && this.hide()
       }, this))
-    } else if (!this.isShown) {
+    }
+    else if (!this.isShown) {
       this.$element.off('keyup.dismiss.hd.modal')
     }
   }
 
   Modal.prototype.hideModal = function () {
-    var that = this
+    var _this = this
     this.$element.hide()
     this.backdrop(function () {
-      that.removeBackdrop()
-      that.$element.trigger('hidden.hd.modal')
+      _this.removeBackdrop()
+      _this.$element.trigger('hidden.hd.modal')
     })
   }
 
@@ -703,8 +698,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
           .one($.support.transition.end, callback)
           .emulateTransitionEnd(150) :
         callback()
-
-    } else if (!this.isShown && this.$backdrop) {
+    }
+    else if (!this.isShown && this.$backdrop) {
       this.$backdrop.removeClass('in')
 
       $.support.transition && this.$element.hasClass('fade') ?
@@ -713,11 +708,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
           .emulateTransitionEnd(150) :
         callback()
 
-    } else if (callback) {
+    }
+    else if (callback) {
       callback()
     }
   }
-
 
   // MODAL PLUGIN DEFINITION
   // =======================
@@ -738,7 +733,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   $.fn.modal.Constructor = Modal
 
-
   // MODAL NO CONFLICT
   // =================
 
@@ -746,7 +740,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $.fn.modal = old
     return this
   }
-
 
   // MODAL DATA-API
   // ==============
@@ -818,7 +811,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
       if (trigger == 'click') {
         this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
-      } else if (trigger != 'manual') {
+      }
+      else if (trigger != 'manual') {
         var eventIn  = trigger == 'hover' ? 'mouseenter' : 'focusin'
         var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout'
 
@@ -897,9 +891,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       this.$element.trigger(e)
 
       if (e.isDefaultPrevented()) return
-      var that = this;
-
-      var $tip = this.tip()
+      var _this = this;
+      var $tip  = this.tip()
 
       this.setContent()
 
@@ -949,8 +942,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       this.applyPlacement(calculatedOffset, placement)
       this.hoverState = null
 
-      var complete = function() {
-        that.$element.trigger('shown.hd.' + that.type)
+      var complete = function () {
+        _this.$element.trigger('shown.hd.' + _this.type)
       }
 
       $.support.transition && this.$tip.hasClass('fade') ?
@@ -1014,7 +1007,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       }
 
       this.replaceArrow(delta - width + actualWidth, actualWidth, 'left')
-    } else {
+    }
+    else {
       this.replaceArrow(actualHeight - height, actualHeight, 'top')
     }
 
@@ -1034,13 +1028,13 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   }
 
   Tooltip.prototype.hide = function () {
-    var that = this
-    var $tip = this.tip()
-    var e    = $.Event('hide.hd.' + this.type)
+    var _this = this
+    var $tip  = this.tip()
+    var e     = $.Event('hide.hd.' + this.type)
 
     function complete() {
-      if (that.hoverState != 'in') $tip.detach()
-      that.$element.trigger('hidden.hd.' + that.type)
+      if (_this.hoverState != 'in') $tip.detach()
+      _this.$element.trigger('hidden.hd.' + _this.type)
     }
 
     this.$element.trigger(e)
@@ -1134,7 +1128,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     this.hide().$element.off('.' + this.type).removeData('hd.' + this.type)
   }
 
-
   // TOOLTIP PLUGIN DEFINITION
   // =========================
 
@@ -1152,7 +1145,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   }
 
   $.fn.tooltip.Constructor = Tooltip
-
 
   // TOOLTIP NO CONFLICT
   // ===================
@@ -1186,7 +1178,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     content: '',
     template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
   })
-
 
   // NOTE: POPOVER EXTENDS tooltip.js
   // ================================
@@ -1237,7 +1228,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     return this.$tip
   }
 
-
   // POPOVER PLUGIN DEFINITION
   // =========================
 
@@ -1255,7 +1245,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   }
 
   $.fn.popover.Constructor = Popover
-
 
   // POPOVER NO CONFLICT
   // ===================
@@ -1316,9 +1305,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
         return ($href
           && $href.length
-          && [[ $href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href ]]) || null
+          && [[$href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href]]) || null
       })
-      .sort(function (a, b) { return a[0] - b[0] })
+      .sort(function (a, b) {
+        return a[0] - b[0]
+      })
       .each(function () {
         self.offsets.push(this[0])
         self.targets.push(this[1])
@@ -1342,7 +1333,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       activeTarget != targets[i]
         && scrollTop >= offsets[i]
         && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
-        && this.activate( targets[i] )
+        && this.activate(targets[i])
     }
   }
 
@@ -1370,7 +1361,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     active.trigger('activate.hd.scrollspy')
   }
 
-
   // SCROLLSPY PLUGIN DEFINITION
   // ===========================
 
@@ -1389,7 +1379,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   $.fn.scrollspy.Constructor = ScrollSpy
 
-
   // SCROLLSPY NO CONFLICT
   // =====================
 
@@ -1397,7 +1386,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $.fn.scrollspy = old
     return this
   }
-
 
   // SCROLLSPY DATA-API
   // ==================
@@ -1474,7 +1462,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
       if (transition) {
         element[0].offsetWidth // reflow for transition
         element.addClass('in')
-      } else {
+      }
+      else {
         element.removeClass('fade')
       }
 
@@ -1494,13 +1483,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $active.removeClass('in')
   }
 
-
   // TAB PLUGIN DEFINITION
   // =====================
 
   var old = $.fn.tab
 
-  $.fn.tab = function ( option ) {
+  $.fn.tab = function (option) {
     return this.each(function () {
       var $this = $(this)
       var data  = $this.data('hd.tab')
@@ -1512,7 +1500,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   $.fn.tab.Constructor = Tab
 
-
   // TAB NO CONFLICT
   // ===============
 
@@ -1520,7 +1507,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $.fn.tab = old
     return this
   }
-
 
   // TAB DATA-API
   // ============
@@ -1577,12 +1563,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   Affix.prototype.checkPosition = function () {
     if (!this.$element.is(':visible')) return
 
-    var scrollHeight = $(document).height()
-    var scrollTop    = this.$window.scrollTop()
-    var position     = this.$element.offset()
-    var offset       = this.options.offset
-    var offsetTop    = offset.top
-    var offsetBottom = offset.bottom
+    var scrollHeight  = $(document).height()
+    var scrollTop     = this.$window.scrollTop()
+    var position      = this.$element.offset()
+    var offset        = this.options.offset
+    var offsetTop     = offset.top
+    var offsetBottom  = offset.bottom
 
     if (this.affixed == 'top') position.top += scrollTop
 
@@ -1617,7 +1603,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     }
   }
 
-
   // AFFIX PLUGIN DEFINITION
   // =======================
 
@@ -1636,7 +1621,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
 
   $.fn.affix.Constructor = Affix
 
-
   // AFFIX NO CONFLICT
   // =================
 
@@ -1644,7 +1628,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     $.fn.affix = old
     return this
   }
-
 
   // AFFIX DATA-API
   // ==============

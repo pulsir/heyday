@@ -47,9 +47,11 @@
 
         return ($href
           && $href.length
-          && [[ $href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href ]]) || null
+          && [[$href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href]]) || null
       })
-      .sort(function (a, b) { return a[0] - b[0] })
+      .sort(function (a, b) {
+        return a[0] - b[0]
+      })
       .each(function () {
         self.offsets.push(this[0])
         self.targets.push(this[1])
@@ -73,7 +75,7 @@
       activeTarget != targets[i]
         && scrollTop >= offsets[i]
         && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
-        && this.activate( targets[i] )
+        && this.activate(targets[i])
     }
   }
 
@@ -101,7 +103,6 @@
     active.trigger('activate.hd.scrollspy')
   }
 
-
   // SCROLLSPY PLUGIN DEFINITION
   // ===========================
 
@@ -120,7 +121,6 @@
 
   $.fn.scrollspy.Constructor = ScrollSpy
 
-
   // SCROLLSPY NO CONFLICT
   // =====================
 
@@ -128,7 +128,6 @@
     $.fn.scrollspy = old
     return this
   }
-
 
   // SCROLLSPY DATA-API
   // ==================

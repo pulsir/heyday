@@ -43,12 +43,12 @@
   Affix.prototype.checkPosition = function () {
     if (!this.$element.is(':visible')) return
 
-    var scrollHeight = $(document).height()
-    var scrollTop    = this.$window.scrollTop()
-    var position     = this.$element.offset()
-    var offset       = this.options.offset
-    var offsetTop    = offset.top
-    var offsetBottom = offset.bottom
+    var scrollHeight  = $(document).height()
+    var scrollTop     = this.$window.scrollTop()
+    var position      = this.$element.offset()
+    var offset        = this.options.offset
+    var offsetTop     = offset.top
+    var offsetBottom  = offset.bottom
 
     if (this.affixed == 'top') position.top += scrollTop
 
@@ -83,7 +83,6 @@
     }
   }
 
-
   // AFFIX PLUGIN DEFINITION
   // =======================
 
@@ -102,7 +101,6 @@
 
   $.fn.affix.Constructor = Affix
 
-
   // AFFIX NO CONFLICT
   // =================
 
@@ -110,7 +108,6 @@
     $.fn.affix = old
     return this
   }
-
 
   // AFFIX DATA-API
   // ==============

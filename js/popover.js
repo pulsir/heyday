@@ -21,7 +21,6 @@
     template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
   })
 
-
   // NOTE: POPOVER EXTENDS tooltip.js
   // ================================
 
@@ -71,7 +70,6 @@
     return this.$tip
   }
 
-
   // POPOVER PLUGIN DEFINITION
   // =========================
 
@@ -89,7 +87,6 @@
   }
 
   $.fn.popover.Constructor = Popover
-
 
   // POPOVER NO CONFLICT
   // ===================

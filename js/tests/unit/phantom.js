@@ -3,7 +3,6 @@
  * Licensed under the MIT License.
  */
 
-/* global QUnit, alert */
 (function () {
   'use strict';
 
@@ -49,7 +48,8 @@
   QUnit.moduleDone = function (opts) {
     if (opts.failed === 0) {
       console.log('\r\u2714 All tests passed in "' + opts.name + '" module')
-    } else {
+    }
+    else {
       console.log('\u2716 ' + opts.failed + ' tests failed in "' + opts.name + '" module')
     }
     sendMessage('qunit.moduleDone', opts.name, opts.failed, opts.passed, opts.total)

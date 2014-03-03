@@ -44,7 +44,8 @@
 
       if (trigger == 'click') {
         this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
-      } else if (trigger != 'manual') {
+      }
+      else if (trigger != 'manual') {
         var eventIn  = trigger == 'hover' ? 'mouseenter' : 'focusin'
         var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout'
 
@@ -123,9 +124,8 @@
       this.$element.trigger(e)
 
       if (e.isDefaultPrevented()) return
-      var that = this;
-
-      var $tip = this.tip()
+      var _this = this;
+      var $tip  = this.tip()
 
       this.setContent()
 
@@ -175,8 +175,8 @@
       this.applyPlacement(calculatedOffset, placement)
       this.hoverState = null
 
-      var complete = function() {
-        that.$element.trigger('shown.hd.' + that.type)
+      var complete = function () {
+        _this.$element.trigger('shown.hd.' + _this.type)
       }
 
       $.support.transition && this.$tip.hasClass('fade') ?
@@ -240,7 +240,8 @@
       }
 
       this.replaceArrow(delta - width + actualWidth, actualWidth, 'left')
-    } else {
+    }
+    else {
       this.replaceArrow(actualHeight - height, actualHeight, 'top')
     }
 
@@ -260,13 +261,13 @@
   }
 
   Tooltip.prototype.hide = function () {
-    var that = this
-    var $tip = this.tip()
-    var e    = $.Event('hide.hd.' + this.type)
+    var _this = this
+    var $tip  = this.tip()
+    var e     = $.Event('hide.hd.' + this.type)
 
     function complete() {
-      if (that.hoverState != 'in') $tip.detach()
-      that.$element.trigger('hidden.hd.' + that.type)
+      if (_this.hoverState != 'in') $tip.detach()
+      _this.$element.trigger('hidden.hd.' + _this.type)
     }
 
     this.$element.trigger(e)
@@ -360,7 +361,6 @@
     this.hide().$element.off('.' + this.type).removeData('hd.' + this.type)
   }
 
-
   // TOOLTIP PLUGIN DEFINITION
   // =========================
 
@@ -378,7 +378,6 @@
   }
 
   $.fn.tooltip.Constructor = Tooltip
-
 
   // TOOLTIP NO CONFLICT
   // ===================

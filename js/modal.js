@@ -9,10 +9,10 @@
   // ======================
 
   var Modal = function (element, options) {
-    this.options   = options
-    this.$element  = $(element)
-    this.$backdrop =
-    this.isShown   = null
+    this.options    = options
+    this.$element   = $(element)
+    this.$backdrop  =
+    this.isShown    = null
 
     if (this.options.remote) this.$element.find('.modal-content').load(this.options.remote)
   }
@@ -28,8 +28,8 @@
   }
 
   Modal.prototype.show = function (_relatedTarget) {
-    var that = this
-    var e    = $.Event('show.hd.modal', { relatedTarget: _relatedTarget })
+    var _this = this
+    var e     = $.Event('show.hd.modal', { relatedTarget: _relatedTarget })
 
     this.$element.trigger(e)
 
@@ -42,33 +42,33 @@
     this.$element.on('click.dismiss.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
     this.backdrop(function () {
-      var transition = $.support.transition && that.$element.hasClass('fade')
+      var transition = $.support.transition && _this.$element.hasClass('fade')
 
-      if (!that.$element.parent().length) {
-        that.$element.appendTo(document.body) // don't move modals dom position
+      if (!_this.$element.parent().length) {
+        _this.$element.appendTo(document.body) // don't move modals dom position
       }
 
-      that.$element.show()
+      _this.$element.show()
 
       if (transition) {
-        that.$element[0].offsetWidth // force reflow
+        _this.$element[0].offsetWidth // force reflow
       }
 
-      that.$element
+      _this.$element
         .addClass('in')
         .attr('aria-hidden', false)
 
-      that.enforceFocus()
+      _this.enforceFocus()
 
       var e = $.Event('shown.hd.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-        that.$element.find('.modal-dialog') // wait for modal to slide in
+        _this.$element.find('.modal-dialog') // wait for modal to slide in
           .one($.support.transition.end, function () {
-            that.$element.focus().trigger(e)
+            _this.$element.focus().trigger(e)
           })
           .emulateTransitionEnd(300) :
-        that.$element.focus().trigger(e)
+        _this.$element.focus().trigger(e)
     })
   }
 
@@ -114,17 +114,18 @@
       this.$element.on('keyup.dismiss.hd.modal', $.proxy(function (e) {
         e.which == 27 && this.hide()
       }, this))
-    } else if (!this.isShown) {
+    }
+    else if (!this.isShown) {
       this.$element.off('keyup.dismiss.hd.modal')
     }
   }
 
   Modal.prototype.hideModal = function () {
-    var that = this
+    var _this = this
     this.$element.hide()
     this.backdrop(function () {
-      that.removeBackdrop()
-      that.$element.trigger('hidden.hd.modal')
+      _this.removeBackdrop()
+      _this.$element.trigger('hidden.hd.modal')
     })
   }
 
@@ -160,8 +161,8 @@
           .one($.support.transition.end, callback)
           .emulateTransitionEnd(150) :
         callback()
-
-    } else if (!this.isShown && this.$backdrop) {
+    }
+    else if (!this.isShown && this.$backdrop) {
       this.$backdrop.removeClass('in')
 
       $.support.transition && this.$element.hasClass('fade') ?
@@ -170,11 +171,11 @@
           .emulateTransitionEnd(150) :
         callback()
 
-    } else if (callback) {
+    }
+    else if (callback) {
       callback()
     }
   }
-
 
   // MODAL PLUGIN DEFINITION
   // =======================
@@ -195,7 +196,6 @@
 
   $.fn.modal.Constructor = Modal
 
-
   // MODAL NO CONFLICT
   // =================
 
@@ -203,7 +203,6 @@
     $.fn.modal = old
     return this
   }
-
 
   // MODAL DATA-API
   // ==============
