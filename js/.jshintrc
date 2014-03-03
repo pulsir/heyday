@@ -7,6 +7,5 @@
   "eqnull": true,
   "expr": true,
   "laxbreak": true,
-  "quotmark": "single",
   "validthis": true
 }
