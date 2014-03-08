@@ -48,4 +48,4 @@ Want to contribute? Check out
 
 ## License
 
-Licensed under [The ☺ Licence](http://docs.pulsir.eu/articles/license).
+Licensed under [The &#9786; Licence](http://docs.pulsir.eu/articles/license).
