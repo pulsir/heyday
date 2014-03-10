@@ -91,7 +91,7 @@ module.exports = function (grunt) {
     },
 
     usebanner: {
-      dist: {
+      css: {
         options: {
           position: 'top',
           banner: '<%= banner %>'
@@ -101,7 +101,7 @@ module.exports = function (grunt) {
     },
 
     concat: {
-      dist: {
+      js: {
         options: {
           banner: '<%= banner %>\n<%= jqueryCheck %>',
           stripBanners: false
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
     },
 
     uglify: {
-      dist: {
+      distMin: {
         options: {
           banner: '<%= banner %>\n'
         },
@@ -125,7 +125,7 @@ module.exports = function (grunt) {
       options: {
         jshintrc: 'js/.jshintrc'
       },
-      gruntfile: {
+      grunt: {
         options: {
           asi: false
         },
@@ -143,7 +143,7 @@ module.exports = function (grunt) {
       options: {
         config: 'js/.jscsrc',
       },
-      gruntfile: {
+      grunt: {
         src: 'Gruntfile.js'
       },
       src: {
@@ -186,6 +186,7 @@ module.exports = function (grunt) {
 
   // Load plugins
   require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
+  require('time-grunt')(grunt);
 
   // CSS distribution task
   grunt.registerTask('dist-css', ['less', 'csscomb', 'usebanner']);

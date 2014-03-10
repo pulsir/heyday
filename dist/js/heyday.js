@@ -36,9 +36,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
     var called = false
-    var $el = this
+    var $el = $(this)
     var callback = function () {
-      if (!called) $($el).trigger($.support.transition.end)
+      if (!called) $el.trigger($.support.transition.end)
     }
 
     $(this).one($.support.transition.end, function () { called = true })
@@ -1576,9 +1576,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); 
     if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
     if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)
 
-    var affix = this.unpin   != null && (scrollTop + this.unpin <= position.top) ? false :
-                offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ? 'bottom' :
-                offsetTop    != null && (scrollTop <= offsetTop) ? 'top' : false
+    var affix = this.unpin   !== null && (scrollTop + this.unpin <= position.top) ? false :
+                offsetBottom !== null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ? 'bottom' :
+                offsetTop    !== null && (scrollTop <= offsetTop) ? 'top' : false
 
     if (this.affixed === affix) return
     if (this.unpin) this.$element.css('top', '')
