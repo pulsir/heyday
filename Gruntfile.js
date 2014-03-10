@@ -52,7 +52,7 @@ module.exports = function (grunt) {
               ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
               ' * Licensed under <%= pkg.license %>.\n' +
               ' */\n',
-    jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'Heyday requires jQuery\'); }\n\n',
+    jqueryCheck: 'if (typeof jQuery === \'undefined\') throw new Error(\'Heyday requires jQuery\');\n\n',
 
     // Tasks
     clean: {

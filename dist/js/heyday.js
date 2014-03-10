@@ -4,7 +4,7 @@
  * Licensed under The :) Licence.
  */
 
-if (typeof jQuery === 'undefined') { throw new Error('Heyday requires jQuery'); }
+if (typeof jQuery === 'undefined') throw new Error('Heyday requires jQuery');
 
 /*
  * Heyday: transition.js v1.0.0
