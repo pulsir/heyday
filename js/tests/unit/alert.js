@@ -1,5 +1,4 @@
 $(function () {
-
   module('alert')
 
   test('should provide no conflict', function () {
@@ -55,5 +54,4 @@ $(function () {
       })
       .alert('close')
   })
-
 })

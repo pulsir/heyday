@@ -1,5 +1,4 @@
 $(function () {
-
   module('modal')
 
   test('should provide no conflict', function () {

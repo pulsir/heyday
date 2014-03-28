@@ -1,5 +1,4 @@
 $(function () {
-
   module('button')
 
   test('should provide no conflict', function () {
@@ -116,5 +115,4 @@ $(function () {
     ok(btn2.hasClass('active'), 'btn2 has active class')
     ok(btn2.find('input').prop('checked'), 'btn2 is checked')
   })
-
 })

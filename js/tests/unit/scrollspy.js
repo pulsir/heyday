@@ -1,5 +1,4 @@
 $(function () {
-
   module('scrollspy')
 
   test('should provide no conflict', function () {
@@ -32,5 +31,4 @@ $(function () {
 
     ok($topbar.find('.active', true))
   })
-
 })

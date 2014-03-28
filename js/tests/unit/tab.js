@@ -1,5 +1,4 @@
 $(function () {
-
   module('tab')
 
   test('should provide no conflict', function () {
@@ -80,5 +79,4 @@ $(function () {
       })
       .tab('show')
   })
-
 })

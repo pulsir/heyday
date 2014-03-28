@@ -1,5 +1,4 @@
 $(function () {
-
   module('popover')
 
   test('should provide no conflict', function () {
@@ -122,5 +121,4 @@ $(function () {
     ok($._data(popover[0],'events').click[0].namespace == 'foo', 'popover still has click.foo')
     ok(!$._data(popover[0], 'events').mouseover && !$._data(popover[0], 'events').mouseout, 'popover does not have any events')
   })
-
 })

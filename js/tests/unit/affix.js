@@ -1,5 +1,4 @@
 $(function () {
-
   module('affix')
 
   test('should provide no conflict', function () {

@@ -1,5 +1,4 @@
 $(function () {
-
   module('tooltip')
 
   test('should provide no conflict', function () {
@@ -427,5 +426,4 @@ $(function () {
 
     ttContainer.remove()
   })
-
 })

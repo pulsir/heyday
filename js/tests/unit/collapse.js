@@ -1,5 +1,4 @@
 $(function () {
-
   module('collapse')
 
   test('should provide no conflict', function () {
@@ -154,5 +153,4 @@ $(function () {
 
     target3.click()
   })
-
 })

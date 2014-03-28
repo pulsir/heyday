@@ -1,5 +1,4 @@
 $(function () {
-
   module('dropdown')
 
   test('should provide no conflict', function () {
