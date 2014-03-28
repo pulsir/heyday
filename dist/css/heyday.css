@@ -477,10 +477,7 @@ ul ol,
 ol ol {
   margin-bottom: 0;
 }
-.list-unstyled {
-  padding-left: 0;
-  list-style: none;
-}
+.list-unstyled,
 .list-inline {
   padding-left: 0;
   list-style: none;

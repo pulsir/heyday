@@ -19,7 +19,7 @@ if (typeof jQuery === 'undefined') throw new Error('Heyday requires jQuery');
   function transitionEnd() {
     var el = document.createElement('heyday')
     var transEndEventNames = {
-      'WebkitTransition' :  'webkitTransitionEnd',
+      'WebkitTransition':   'webkitTransitionEnd',
       'MozTransition':      'transitionend',
       'OTransition':        'oTransitionEnd otransitionend',
       'transition':         'transitionend'

@@ -99,7 +99,7 @@ ol {
 
 // Inline turns list items into `inline-block`
 .list-inline {
-  .list-unstyled();
+  &:extend(.list-unstyled all);
 
   > li {
     display: inline-block;
