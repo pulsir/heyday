@@ -11,7 +11,7 @@
   function transitionEnd() {
     var el = document.createElement('heyday')
     var transEndEventNames = {
-      'WebkitTransition' :  'webkitTransitionEnd',
+      'WebkitTransition':   'webkitTransitionEnd',
       'MozTransition':      'transitionend',
       'OTransition':        'oTransitionEnd otransitionend',
       'transition':         'transitionend'
