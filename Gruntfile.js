@@ -175,8 +175,8 @@ module.exports = function (grunt) {
     sed: {
       versions: {
         pattern: (function () {
-          var old = grunt.option('old')
-          return old ? RegExp.quote(old) : old
+          var old = grunt.option('old');
+          return old ? RegExp.quote(old) : old;
         })(),
         replacement: grunt.option('new'),
         recursive: true
