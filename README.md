@@ -1,7 +1,7 @@
 # Heyday
 
-[![Build status](https://travis-ci.org/pulsir/heyday.png?branch=master)](https://travis-ci.org/pulsir/heyday)
-[![devDependency status](https://david-dm.org/pulsir/heyday/dev-status.png?theme=shields.io)](https://david-dm.org/pulsir/heyday#info=devDependencies)
+[![Build Status](https://travis-ci.org/pulsir/heyday.svg?branch=master)](https://travis-ci.org/pulsir/heyday)
+[![devDependency Status](https://david-dm.org/pulsir/heyday/dev-status.svg)](https://david-dm.org/pulsir/heyday#info=devDependencies)
 
 > A bloat-free front-end framework for your next project
 
