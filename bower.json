@@ -3,10 +3,10 @@
   "author": "Pulsir team",
   "description": "A bloat-free front-end framework for your next project",
   "keywords": [
+    "pulsir",
     "js",
     "less",
-    "css",
-    "pulsir"
+    "css"
   ],
   "version": "1.0.0",
   "license": "The :) License",
