@@ -1,5 +1,4 @@
-# Always-ignore extensions
-*.diff
+# Always-ignore files
 *.err
 *.orig
 *.log
